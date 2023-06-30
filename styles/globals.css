@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --Primary: #272727;
+}
+
+.isaac-bg {
+  background-color: var(--Primary);
+}
