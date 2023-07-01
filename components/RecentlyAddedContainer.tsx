@@ -7,7 +7,7 @@ export default function RecentlyAddedContainer() {
     <div className=" flex justify-center px-10 pt-28">
       <section className="relative min-w-fit rounded-3xl space-y-2 text-white">
         <div className="min-h-56 flex flex-col md:flex-row justify-between">
-          <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10">
+          <div className="absolute top-0 w-full h-full opacity-10 p-10">
             <Image
               alt="Image"
               fill
