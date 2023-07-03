@@ -12,9 +12,7 @@ export async function fetchToken() {
       method: "POST",
       body: data,
     });
-    console.log("response", response);
     const json = await response.json();
-    console.log("json", json);
     return json.access_token;
   } catch (error: any) {
     throw new Error("Failed to get acess token");

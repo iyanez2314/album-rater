@@ -1,18 +1,18 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { fetchToken } from "../../util/fetchToken";
-import { makeApiRequest } from "../../util/makeApiRequest";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     try {
       let accessToken = await fetchToken();
       if (!accessToken) {
         res.status(500).json({ message: "Couldn't fetch access token" });
       }
-      const url = "https://api.spotify.com/v1/browse/new-releases";
+      const albumId = req.body.albumId;
+      const url = `https://api.spotify.com/v1/albums/${albumId}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {

@@ -17,7 +17,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
         <div className="min-h-56 flex flex-col md:flex-row justify-between">
           <div className="absolute top-0 w-full h-full opacity-10 p-10">
             <Image
-              alt="Image"
+              alt={albumName}
               fill
               className="object-cover object-center mx-auto"
               src={images}
@@ -31,7 +31,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
             </div>
             <div className="h-[150px]  mt-4 flex justify-center flex-col p-4 ml-20">
               <Image
-                alt="Image"
+                alt={albumName}
                 width={175}
                 height={175}
                 className="mx-auto"

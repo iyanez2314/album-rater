@@ -1,11 +1,12 @@
-import React from "react";
+export default function AlbumData({ albumData }: any) {
+  const { name } = albumData;
+  const artistName = albumData?.artists?.[0].name || "";
 
-export default function AlbumData() {
   return (
     <div className="text-white flex flex-col justify-between items-center w-full">
       <div className=" flex justify-between mx-7 w-1/2 items-center p-2">
         <h1 className="text-sm md:text-lg lg:text-lg xl:text-2xl font-semibold">
-          Album Name
+          {name}
         </h1>
         <p>Messages</p>
       </div>
@@ -15,7 +16,7 @@ export default function AlbumData() {
             className="m-2
         text-md font-light underline cursor-pointer"
           >
-            Artist Name
+            {artistName}
           </p>
           <div className="mx-2 mb-1 flex font-bold justify-start gap-5">
             <button className="rounded-md w-12 cursor-none bg-[#1DB954]">

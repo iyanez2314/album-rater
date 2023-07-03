@@ -18,6 +18,7 @@ export default function FeaturedAlbums({ recentlyAdded }: Props) {
           return (
             <FeaturedAlbumsCard
               key={album.id}
+              id={album.id}
               albumName={album.name}
               artistName={album.artists[0].name}
               albumImage={album.images[0].url}
