@@ -1,7 +1,11 @@
 import React from "react";
 import FeaturedAlbumsCard from "./FeaturedAlbumsCard";
 
-export default function FeaturedAlbums() {
+interface Props {
+  recentlyAdded: any;
+}
+
+export default function FeaturedAlbums({ recentlyAdded }: Props) {
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="flex justify-center flex-col items-center">
@@ -10,10 +14,16 @@ export default function FeaturedAlbums() {
         </div>
       </div>
       <div className="p-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-10 ">
-        <FeaturedAlbumsCard />
-        <FeaturedAlbumsCard />
-        <FeaturedAlbumsCard />
-        <FeaturedAlbumsCard />
+        {recentlyAdded.map((album: any) => {
+          return (
+            <FeaturedAlbumsCard
+              key={album.id}
+              albumName={album.name}
+              artistName={album.artists[0].name}
+              albumImage={album.images[0].url}
+            />
+          );
+        })}
       </div>
     </div>
   );

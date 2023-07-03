@@ -22,9 +22,9 @@ export default function Home() {
 
   return (
     <>
-      <RecentlyAddedContainer />
+      <RecentlyAddedContainer recentlyAdded={recentlyAdded} />
       <hr className="mt-20 border-[#1DB954]" />
-      <FeaturedAlbums />
+      <FeaturedAlbums recentlyAdded={recentlyAdded} />
     </>
   );
 }
