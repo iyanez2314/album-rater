@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import AuthModal from "./AuthModal";
 
 export default function Header() {
   return (
@@ -8,12 +9,12 @@ export default function Header() {
         <Link href="/">Logo</Link>
       </div>
       <nav className="text-white">
-        <ul className="flex space-x-4">
+        <ul className="flex items-center space-x-4">
           <li>
-            <Link href="/about">Login</Link>
+            <AuthModal login={true} />
           </li>
           <li>
-            <Link href="/contact">Sign up</Link>
+            <AuthModal login={false} />
           </li>
         </ul>
       </nav>

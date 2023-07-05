@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import albumCover from "../public/brett-jordan-x3wDxZJx9qs-unsplash.jpg";
-
 interface Props {
   recentlyAdded: any;
 }
