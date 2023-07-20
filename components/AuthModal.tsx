@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import AuthInput from "./AuthInput";
+import useAuth from "../hooks/useAuth";
 
 interface Props {
   login: boolean;
@@ -27,6 +28,7 @@ export default function AuthModal({ login }: Props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const { signup, logout, singin } = useAuth();
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -48,6 +50,7 @@ export default function AuthModal({ login }: Props) {
       // handle login
     } else {
       // handle signup
+      signup(inputs);
     }
   };
 
