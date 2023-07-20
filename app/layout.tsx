@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import "../styles/globals.css";
+import AuthContext from "./context/AuthContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,10 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="isaac-bg">
-        <main className=" max-w-7xl mx-auto">
-          <Header />
-          {children}
-        </main>
+        <AuthContext>
+          <main className=" max-w-7xl mx-auto">
+            <Header />
+            {children}
+          </main>
+        </AuthContext>
       </body>
     </html>
   );

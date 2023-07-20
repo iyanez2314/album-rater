@@ -7,11 +7,20 @@ interface Props {
     password: string;
   };
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-export default function AuthInput({ login, inputs, handleInputChange }: Props) {
+export default function AuthInput({
+  login,
+  inputs,
+  handleInputChange,
+  handleSubmit,
+}: Props) {
+  const renderContent = (signInContent: string, signUpContent: string) => {
+    return login ? signInContent : signUpContent;
+  };
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       {login ? null : (
         <div className="my-3 flex justify-between text-sm">
           <input
@@ -23,12 +32,12 @@ export default function AuthInput({ login, inputs, handleInputChange }: Props) {
             name="name"
           />
           <input
-            type="email"
+            type="username"
             className="bg-white border rounded p-2 py-3 w-[49%]"
             placeholder="Username"
             value={inputs.username}
             onChange={handleInputChange}
-            name="email"
+            name="username"
           />
         </div>
       )}
@@ -52,6 +61,12 @@ export default function AuthInput({ login, inputs, handleInputChange }: Props) {
           name="password"
         />
       </div>
-    </div>
+      <button
+        type="submit"
+        className="uppercase bg-[#1DB954] text-white p-3 rounded text-sm mb-5"
+      >
+        {renderContent("Sign In", "Create Account")}
+      </button>
+    </form>
   );
 }

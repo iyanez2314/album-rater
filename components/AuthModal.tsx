@@ -45,7 +45,8 @@ export default function AuthModal({ login }: Props) {
     return login ? signInContent : signUpContent;
   };
 
-  const handleClick = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (login) {
       // handle login
     } else {
@@ -76,13 +77,11 @@ export default function AuthModal({ login }: Props) {
               {renderContent("Sign In", "Create Account")}
             </p>
             <AuthInput
+              handleSubmit={handleSubmit}
               login={login}
               inputs={inputs}
               handleInputChange={handleInputChange}
             />
-            <button className="uppercase bg-[#1DB954] text-white p-3 rounded text-sm mb-5">
-              {renderContent("Sign In", "Create Account")}
-            </button>
           </Box>
         </Fade>
       </Modal>
