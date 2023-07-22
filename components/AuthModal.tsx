@@ -32,7 +32,6 @@ export default function AuthModal({ login }: Props) {
   const handleClose = () => setOpen(false);
   const { signup, logout, singin } = useAuth();
   const { loading, error, data } = useContext(AuthenticationContext);
-  console.log("here", data);
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -91,9 +90,7 @@ export default function AuthModal({ login }: Props) {
                 <p className="text-2xl">
                   {renderContent("Sign In", "Create Account")}
                 </p>
-                <p>
-                  {data ? `Welcome ${data.user?.username}` : "Please login"}
-                </p>
+                <p>{data ? `Welcome ${data?.username}` : "Please login"}</p>
                 <AuthInput
                   handleSubmit={handleSubmit}
                   login={login}

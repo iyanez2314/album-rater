@@ -12,9 +12,11 @@ const useAuth = () => {
     email: string;
     password: string;
   }) => {
+    console.log("here in sign in", email, password);
+
     setAuthState({ data: null, loading: true, error: null });
     try {
-      const resp = await fetch("http://localhost:3000/api/auth/login", {
+      const resp = await fetch("http://localhost:3000/api/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
