@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -7,6 +7,8 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import AuthInput from "./AuthInput";
 import useAuth from "../hooks/useAuth";
+import { AuthenticationContext } from "../app/context/AuthContext";
+import { CircularProgress } from "@mui/material";
 
 interface Props {
   login: boolean;
@@ -29,6 +31,8 @@ export default function AuthModal({ login }: Props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const { signup, logout, singin } = useAuth();
+  const { loading, error, data } = useContext(AuthenticationContext);
+  console.log("here", data);
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -48,16 +52,20 @@ export default function AuthModal({ login }: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (login) {
-      // handle login
+      singin(inputs);
     } else {
-      // handle signup
       signup(inputs);
     }
   };
 
   return (
     <div>
-      <Button onClick={handleOpen}>{login ? "Login" : "Signup"}</Button>
+      <Button
+        className="bg-[#1DB954] text-white rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+        onClick={handleOpen}
+      >
+        {login ? "Login" : "Signup"}
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -73,15 +81,27 @@ export default function AuthModal({ login }: Props) {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <p className="text-2xl">
-              {renderContent("Sign In", "Create Account")}
-            </p>
-            <AuthInput
-              handleSubmit={handleSubmit}
-              login={login}
-              inputs={inputs}
-              handleInputChange={handleInputChange}
-            />
+            {loading ? (
+              <div className=" py-24 px-2 h-[500px] flex justify-center">
+                <CircularProgress />
+              </div>
+            ) : (
+              <div>
+                {error ? "Error" : null}
+                <p className="text-2xl">
+                  {renderContent("Sign In", "Create Account")}
+                </p>
+                <p>
+                  {data ? `Welcome ${data.user?.username}` : "Please login"}
+                </p>
+                <AuthInput
+                  handleSubmit={handleSubmit}
+                  login={login}
+                  inputs={inputs}
+                  handleInputChange={handleInputChange}
+                />
+              </div>
+            )}
           </Box>
         </Fade>
       </Modal>
