@@ -61,7 +61,39 @@ const useAuth = () => {
     setAuthState({ data: null, loading: false, error: null });
   };
 
-  return { singin, signup, logout };
+  const updateProfile = async ({
+    originalEmail,
+    email,
+    username,
+    name,
+  }: {
+    originalEmail: string;
+    email: string;
+    username: string;
+    name: string;
+  }) => {
+    setAuthState({ data: null, loading: true, error: null });
+    try {
+      const resp = await fetch("http://localhost:3000/api/auth/updateInfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          originalEmail,
+          email,
+          username,
+          name,
+        }),
+      });
+      const data = await resp.json();
+      setAuthState({ data, loading: false, error: null });
+    } catch (error: any) {
+      setAuthState({ data: null, loading: false, error: error.message });
+    }
+  };
+
+  return { singin, signup, logout, updateProfile };
 };
 
 export default useAuth;

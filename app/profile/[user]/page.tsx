@@ -1,9 +1,28 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 import { AuthenticationContext } from "../../context/AuthContext";
 
 export default function page() {
   const { loading, error, data } = useContext(AuthenticationContext);
+  const { updateProfile } = useAuth();
+  const [inputs, setInputs] = useState({
+    originalEmail: data?.email || "",
+    username: "",
+    email: "",
+    name: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setInputs((inputs) => ({ ...inputs, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    updateProfile(inputs);
+  };
+
   return (
     <div className="flex justify-center items-center flex-col min-h-screen">
       <div className="bg-black rounded-lg text-white h-96 w-96 flex justify-center items-center flex-col space-y-2">
@@ -12,7 +31,7 @@ export default function page() {
             Update Profile Info
           </h1>
         </div>
-        <form className="space-y-3">
+        <form className="space-y-3" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label>Username</label>
             <input
@@ -22,6 +41,7 @@ export default function page() {
               name="username"
               type="text"
               placeholder={data?.username}
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col">
@@ -30,6 +50,7 @@ export default function page() {
               className=" text-black p-2 rounded focus:outline-none focus:ring focus:border-blue-500"
               name="email"
               type="email"
+              onChange={handleChange}
               placeholder={data?.email}
             />
           </div>
@@ -41,11 +62,15 @@ export default function page() {
               className=" text-black p-2 rounded focus:outline-none focus:ring focus:border-blue-500"
               name="name"
               type="text"
+              onChange={handleChange}
               placeholder={data?.name}
             />
           </div>
 
-          <button className=" bg-purple-600 text-white p-2 rounded-md hover:opacity-80 transition-all duration-200 ease-in-out ">
+          <button
+            type="submit"
+            className=" bg-purple-600 text-white p-2 rounded-md hover:opacity-80 transition-all duration-200 ease-in-out "
+          >
             Update Info
           </button>
         </form>
