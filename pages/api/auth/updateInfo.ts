@@ -10,13 +10,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  /**
-   * TODO: When I am sending the informtion here I am sending it with
-   * the new email and looking for that email but it does not exist yet
-   * so it is not finding it. I need to find a way to update the user
-   * with the new email and then find it.
-   *
-   */
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
