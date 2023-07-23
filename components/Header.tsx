@@ -24,6 +24,9 @@ export default function Header() {
                 Logout
               </button>
             </li>
+            <li>
+              <Link href="/profile/dog">Profile</Link>
+            </li>
           </ul>
         </nav>
       ) : (

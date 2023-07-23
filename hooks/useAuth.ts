@@ -12,8 +12,6 @@ const useAuth = () => {
     email: string;
     password: string;
   }) => {
-    console.log("here in sign in", email, password);
-
     setAuthState({ data: null, loading: true, error: null });
     try {
       const resp = await fetch("http://localhost:3000/api/auth/signin", {
@@ -24,6 +22,7 @@ const useAuth = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await resp.json();
+      console.log(data);
       setAuthState({ data, loading: false, error: null });
     } catch (error: any) {
       setAuthState({ data: null, loading: false, error: error.message });

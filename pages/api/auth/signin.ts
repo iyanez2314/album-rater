@@ -67,6 +67,9 @@ export default async function handler(
   setCookie("jwt", token, { req, res, httpOnly: true, maxAge: 60 * 60 * 24 });
 
   return res.status(200).json({
-    message: "Success",
+    name: user.name,
+    email: user.email,
+    id: user.id,
+    username: user.username,
   });
 }
