@@ -1,12 +1,37 @@
 "use client";
 import { useState } from "react";
 import { ArrowDown } from "react-feather";
+import { Review } from "./CommentSection";
 
-export default function ReviewCards() {
+export default function ReviewCards({ review }: { review: Review }) {
+  console.log(review.createdAt);
   const [isTruncated, setIsTruncated] = useState(true);
 
   const toggleTruncate = () => {
     setIsTruncated(!isTruncated);
+  };
+
+  let reviewDate: any = new Date(review.createdAt);
+
+  // Get the current date
+  let currentDate: any = new Date();
+
+  // Calculate the difference in milliseconds
+  let differenceInMilliseconds = Math.abs(currentDate - reviewDate);
+
+  // Convert the difference to days
+  let differenceInDays = Math.floor(
+    differenceInMilliseconds / (1000 * 60 * 60 * 24)
+  );
+
+  const betweenDays = () => {
+    if (differenceInDays === 0) {
+      return "Today";
+    } else if (differenceInDays === 1) {
+      return "Yesterday";
+    } else {
+      return `${differenceInDays} days ago`;
+    }
   };
 
   return (
@@ -16,23 +41,20 @@ export default function ReviewCards() {
         <div className="mb-4 w-[calc(100%-110px)] ml-[10px] text-white font-poppins">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-[18px] font-bold">This Album Sucks</p>
+              <p className="text-[18px] font-bold">{review.title}</p>
               <div className="flex gap-2">
                 <p className="text-[12px] font-light">Isaac69</p>
                 <span>*****</span>
               </div>
             </div>
-            <span className="text-[12px]">12 min ago</span>
+            <span className="text-[12px]">{betweenDays()}</span>
           </div>
           <p
             className={`text-[14px] font-light ${
               isTruncated ? "truncate" : ""
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
-            autem quaerat unde dolor cum deserunt itaque excepturi commodi,
-            molestias, sapiente delectus dicta! Dolorum voluptates earum optio
-            mollitia eius commodi soluta.
+            {review.body}
           </p>
         </div>
       </div>

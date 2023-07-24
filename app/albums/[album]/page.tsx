@@ -40,7 +40,7 @@ export default function page({ params }: Props) {
       {/* Album Data Component */}
       <AlbumData albumData={album} />
       {/* Comment Section Component */}
-      <CommentSection />
+      <CommentSection albumData={album} params={params} />
     </div>
   );
 }

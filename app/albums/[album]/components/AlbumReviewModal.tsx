@@ -3,8 +3,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AlbumReviewModalInput from "./AlbumReviewModalInput";
+import AuthContext, {
+  AuthenticationContext,
+} from "../../../context/AuthContext";
+import useComment from "../../../../hooks/useComment";
 
 const style = {
   position: "absolute" as "absolute",
@@ -19,7 +23,58 @@ const style = {
   pb: 3,
 };
 
-export default function AlbumReviewModal() {
+interface State {
+  albumTitle: string;
+  albumId: string;
+  userId: string | number;
+  title: string;
+  rating: string;
+  comment: string;
+}
+
+export default function AlbumReviewModal({
+  albumId,
+  albumName,
+}: {
+  albumId: string;
+  albumName: string;
+}) {
+  const { data } = useContext(AuthenticationContext);
+
+  console.log(data);
+
+  const { createComment } = useComment();
+  const [albumReview, setAlbumReview] = useState<State>({
+    title: "",
+    rating: "",
+    comment: "",
+    albumTitle: "",
+    albumId: "",
+    userId: "",
+  });
+
+  useEffect(() => {
+    setAlbumReview({
+      title: "",
+      rating: "",
+      comment: "",
+      albumTitle: albumName || "",
+      albumId: albumId || "",
+      userId: data?.id || "",
+    });
+  }, [albumId, albumName, data]);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setAlbumReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    createComment(albumReview);
+  };
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -38,7 +93,10 @@ export default function AlbumReviewModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <AlbumReviewModalInput />
+          <AlbumReviewModalInput
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+          />
         </Box>
       </Modal>
     </div>
