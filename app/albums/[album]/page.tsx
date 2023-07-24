@@ -25,7 +25,6 @@ export default function page({ params }: Props) {
       }),
     });
     const data = await response.json();
-    console.log(data);
     setAlbum(data);
     setAlbumCover(data.images[0].url);
   };
