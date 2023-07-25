@@ -2,6 +2,8 @@
 import React, { useContext, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { AuthenticationContext } from "../../context/AuthContext";
+import Tabs from "./components/Tabs";
+import Tab from "./components/Tab";
 
 export default function page() {
   const { loading, error, data } = useContext(AuthenticationContext);
@@ -75,7 +77,21 @@ export default function page() {
           </button>
         </form>
       </div>
-      <div className="bg-black rounded-lg text-white h-[600px] w-1/2 flex justify-center items-center flex-col space-y-2"></div>
+      <div className="bg-black rounded-lg text-white h-[600px] items-center w-1/2 flex flex-col space-y-2">
+        <Tabs>
+          <Tab label="Comments Count">
+            <div className="flex flex-col justify-center items-center mt-20 font-thin">
+              <h1>Total Comments Made On Album</h1>
+              <p>0</p>
+            </div>
+          </Tab>
+          <Tab label="Comments">
+            <div className="flex flex-col justify-center items-center mt-20 font-thin space-y-4">
+              <h1>Comments Made On Albums</h1>
+            </div>
+          </Tab>
+        </Tabs>
+      </div>
     </div>
   );
 }
