@@ -24,8 +24,8 @@ export default function page() {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen">
-      <div className="bg-black rounded-lg text-white h-96 w-96 flex justify-center items-center flex-col space-y-2">
+    <div className="flex justify-evenly items-center min-h-screen flex-col sm:flex-row">
+      <div className="bg-black rounded-lg text-white h-[500px] w-96 flex justify-center items-center flex-col space-y-2">
         <div className="mb-3">
           <h1 className="text-lg font-semibold underline">
             Update Profile Info
@@ -75,6 +75,7 @@ export default function page() {
           </button>
         </form>
       </div>
+      <div className="bg-black rounded-lg text-white h-[600px] w-1/2 flex justify-center items-center flex-col space-y-2"></div>
     </div>
   );
 }

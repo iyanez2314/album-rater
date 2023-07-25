@@ -50,7 +50,7 @@ export default function CommentSection({
         </h1>
         <AlbumReviewModal albumId={albumData.id} albumName={albumData.name} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start w-full">
         {reviews?.length === 0 ? (
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-2xl font-semibold">No Reviews Yet</h1>
