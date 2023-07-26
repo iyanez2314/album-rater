@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { fetchToken } from "../../util/fetchToken";
-import { makeApiRequest } from "../../util/makeApiRequest";
 
 export default async function handler(
   req: NextApiRequest,

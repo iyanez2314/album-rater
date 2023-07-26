@@ -20,13 +20,17 @@ const Tabs: React.FC<{ children: ReactElement<TabProps>[] }> = ({
 
   return (
     <div>
-      <div className="flex bg-gray-200">
+      <div className="mt-3 flex rounded mx-2">
         {children.map((child) => {
           const { label } = child.props;
 
           return (
             <button
-              className={`p-2 ${activeTab === label ? "bg-gray-400" : ""}`}
+              className={`p-2 rounded font-thin w-full ${
+                activeTab === label
+                  ? "text-white bg-[#1DB954] underline"
+                  : "text-white bg-black"
+              }`}
               onClick={(e) => handleClick(e, label)}
             >
               {label}
