@@ -41,8 +41,6 @@ export default function AlbumReviewModal({
 }) {
   const { data } = useContext(AuthenticationContext);
 
-  console.log(data);
-
   const { createComment } = useComment();
   const [albumReview, setAlbumReview] = useState<State>({
     title: "",
