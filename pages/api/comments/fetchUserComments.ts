@@ -24,14 +24,13 @@ export default async function handler(
             select: {
               title: true,
               albumCover: true,
+              albumId: true,
             },
           },
         },
       },
     },
   });
-
-  console.log(user);
 
   if (!user) {
     return res.status(200).json({ message: "User not found" });

@@ -53,6 +53,12 @@ export default function AlbumReviewModal({
     userId: "",
     albumCover: "",
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  if (data?.id) {
+    setIsLoggedIn(true);
+  }
+
   useEffect(() => {
     setAlbumReview({
       title: "",
@@ -92,6 +98,7 @@ export default function AlbumReviewModal({
       >
         <Box sx={style}>
           <AlbumReviewModalInput
+            isLoggedIn={isLoggedIn}
             handleInputChange={handleInputChange}
             handleSubmit={handleSubmit}
           />
