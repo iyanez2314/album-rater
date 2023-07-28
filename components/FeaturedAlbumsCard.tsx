@@ -32,7 +32,6 @@ export default function FeaturedAlbumsCard({
             </h2>
           </div>
         </div>
-        <button className="absolute top-0 bg-red-500 z-1 mx-2">Heart</button>
       </div>
     </Link>
   );

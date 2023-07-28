@@ -86,7 +86,9 @@ export default function AuthModal({ login }: Props) {
               </div>
             ) : (
               <div>
-                {error ? "Error" : null}
+                <p className="font-semibold text-red-500 underline">
+                  {error ? "Error Happened Try Again Later :( " : null}
+                </p>
                 <p className="text-2xl">
                   {renderContent("Sign In", "Create Account")}
                 </p>

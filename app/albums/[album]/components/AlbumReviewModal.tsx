@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import AlbumReviewModalInput from "./AlbumReviewModalInput";
 import AuthContext, {
   AuthenticationContext,
@@ -55,9 +55,11 @@ export default function AlbumReviewModal({
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  if (data?.id) {
-    setIsLoggedIn(true);
-  }
+  useEffect(() => {
+    if (data) {
+      setIsLoggedIn(true);
+    }
+  }, [data]);
 
   useEffect(() => {
     setAlbumReview({
