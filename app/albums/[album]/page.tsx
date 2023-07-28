@@ -13,8 +13,10 @@ interface Props {
 export default function page({ params }: Props) {
   const [album, setAlbum] = useState([]);
   const [albumCover, setAlbumCover] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchAlbum = async () => {
+    setLoading(true);
     const response = await fetch("/api/fetchAlbum", {
       method: "POST",
       headers: {
@@ -24,9 +26,11 @@ export default function page({ params }: Props) {
         albumId: params.album,
       }),
     });
+
     const data = await response.json();
     setAlbum(data);
     setAlbumCover(data.images[0].url);
+    setLoading(false);
   };
 
   useEffect(() => {

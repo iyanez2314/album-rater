@@ -5,6 +5,7 @@ interface CreateCommentsArguments {
   title: string;
   rating: string;
   comment: string;
+  albumCover: string;
 }
 const useComment = () => {
   const createComment = async ({
@@ -14,6 +15,7 @@ const useComment = () => {
     albumTitle,
     albumId,
     userId,
+    albumCover,
   }: CreateCommentsArguments) => {
     try {
       const resp = await fetch(
@@ -25,6 +27,7 @@ const useComment = () => {
           },
           body: JSON.stringify({
             albumTitle,
+            albumCover,
             albumId,
             userId,
             title,
@@ -34,7 +37,6 @@ const useComment = () => {
         }
       );
       const data = await resp.json();
-      console.log("here in useComment", data);
       return data;
     } catch (error: any) {
       return error.message;

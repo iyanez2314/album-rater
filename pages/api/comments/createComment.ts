@@ -11,7 +11,8 @@ export default async function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { albumTitle, albumId, userId, title, rating, comment } = req.body;
+  const { albumTitle, albumId, userId, title, rating, comment, albumCover } =
+    req.body;
 
   console.log("req.body", req.body);
   const UserId = parseInt(userId);
@@ -30,10 +31,9 @@ export default async function handler(
         data: {
           albumId: albumId,
           title: albumTitle,
+          albumCover: albumCover,
         },
       });
-
-      console.log("album created", album);
     }
 
     // Create the review
@@ -46,8 +46,6 @@ export default async function handler(
         userId: UserId,
       },
     });
-
-    console.log("new review", newReview);
 
     return res.status(200).json({ message: "Comment created" });
   } catch (error) {

@@ -30,17 +30,19 @@ interface State {
   title: string;
   rating: string;
   comment: string;
+  albumCover: string;
 }
 
 export default function AlbumReviewModal({
   albumId,
   albumName,
+  albumCover,
 }: {
   albumId: string;
   albumName: string;
+  albumCover: any;
 }) {
   const { data } = useContext(AuthenticationContext);
-
   const { createComment } = useComment();
   const [albumReview, setAlbumReview] = useState<State>({
     title: "",
@@ -49,8 +51,8 @@ export default function AlbumReviewModal({
     albumTitle: "",
     albumId: "",
     userId: "",
+    albumCover: "",
   });
-
   useEffect(() => {
     setAlbumReview({
       title: "",
@@ -59,20 +61,18 @@ export default function AlbumReviewModal({
       albumTitle: albumName || "",
       albumId: albumId || "",
       userId: data?.id || "",
+      albumCover: albumCover || "",
     });
   }, [albumId, albumName, data]);
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setAlbumReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createComment(albumReview);
   };
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

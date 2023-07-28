@@ -12,22 +12,30 @@ export default async function handler(
   }
 
   const { email } = req.body;
-  console.log(email);
 
   const user = await prisma.user.findUnique({
     where: {
       email,
     },
     include: {
-      reviews: true,
+      reviews: {
+        include: {
+          album: {
+            select: {
+              title: true,
+              albumCover: true,
+            },
+          },
+        },
+      },
     },
   });
+
+  console.log(user);
 
   if (!user) {
     return res.status(200).json({ message: "User not found" });
   }
-
-  console.log(user.reviews);
 
   return res.status(200).json({ userComments: user.reviews });
 }

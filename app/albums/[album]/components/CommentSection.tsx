@@ -48,7 +48,11 @@ export default function CommentSection({
           Comments{" "}
           <span className="underline text-[#1DB954] font-thin">(10k)</span>
         </h1>
-        <AlbumReviewModal albumId={albumData.id} albumName={albumData.name} />
+        <AlbumReviewModal
+          albumCover={albumData?.images?.[0]?.url}
+          albumId={albumData?.id}
+          albumName={albumData?.name}
+        />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start w-full">
         {reviews?.length === 0 ? (

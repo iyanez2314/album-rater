@@ -1,6 +1,4 @@
 export default function getDays(review: any) {
-  console.log(review);
-
   let reviewDate: any = new Date(review);
   // Get the current date
   let currentDate: any = new Date();
