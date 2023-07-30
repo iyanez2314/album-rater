@@ -15,6 +15,7 @@ export default function Home() {
       setRecentlyAdded(cachedData);
       return;
     } else {
+      // TODO: I need to make a custom hoook that will pass in the token to it and make the fetch request
       const response = await fetch("/api/fetchRecentlyAddedAlbums");
       const data = await response.json();
       const allAlbums = data.albums.items;

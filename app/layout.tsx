@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import "../styles/globals.css";
 import AuthContext from "./context/AuthContext";
+import { TokenProvider } from "./context/TokenContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,10 +17,12 @@ export default function RootLayout({
     <html lang="en">
       <body className="isaac-bg">
         <AuthContext>
-          <main className=" max-w-7xl mx-auto">
-            <Header />
-            {children}
-          </main>
+          <TokenProvider>
+            <main className=" max-w-7xl mx-auto">
+              <Header />
+              {children}
+            </main>
+          </TokenProvider>
         </AuthContext>
       </body>
     </html>
