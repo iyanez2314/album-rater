@@ -33,7 +33,9 @@ export default function Header() {
       ) : (
         <nav className="text-white">
           <ul className="flex items-center space-x-5">
-            <li>{/* <SearchInput /> */}</li>
+            <li>
+              <SearchInput />
+            </li>
             <li>
               <AuthModal login={true} />
             </li>

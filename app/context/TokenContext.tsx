@@ -35,7 +35,7 @@ export const TokenProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <TokenContext.Provider value={{ token, expirationTime }}>
-      {children}
+      {token && expirationTime && children}
     </TokenContext.Provider>
   );
 };
