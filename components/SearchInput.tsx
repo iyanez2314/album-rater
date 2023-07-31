@@ -1,19 +1,19 @@
 "use client";
 import { useState } from "react";
+import { useToken } from "../app/context/TokenContext";
 import useSearch from "../hooks/useSearch";
 
 export default function SearchInput() {
   const [isInputFocused, setInputFocus] = useState(false);
   const [isInputFilled, setInputFilled] = useState(false);
   const [inputvalue, setInputValue] = useState("");
-  const { data, error } = useSearch(inputvalue, 500);
+  const { token } = useToken(); // Grabs the token from the context
+  const { searchResults } = useSearch(inputvalue, 300, token);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputFilled(e.target.value !== "");
     setInputValue(e.target.value);
   };
-
-  console.log(data);
 
   const handleInputFocus = () => {
     setInputFocus(true);
