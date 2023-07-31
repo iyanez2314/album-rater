@@ -13,6 +13,7 @@ export default function Home() {
   if (!token || !featuredAlbums) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <RecentlyAddedContainer recentlyAdded={featuredAlbums} />
