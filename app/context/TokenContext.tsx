@@ -1,3 +1,4 @@
+"use client";
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { fetchToken } from "../../util/fetchToken";
 
@@ -17,12 +18,14 @@ export const TokenProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const fetchAccessToken = async () => {
-      const accessToken = await fetchToken();
-      if (accessToken) {
-        setToken(accessToken);
-        // Set the token expiration time to one hour from now
-        setExpirationTime(Date.now() + 3600 * 1000);
+      const response = await fetch("/api/token/fetchToken");
+      const data = await response.json();
+      const accessToken = data.accessToken;
+      if (!accessToken) {
+        throw new Error("No access token found");
       }
+      setToken(accessToken);
+      setExpirationTime(Date.now() + 3600 * 1000);
     };
 
     if (!token || Date.now() > expirationTime) {

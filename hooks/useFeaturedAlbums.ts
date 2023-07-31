@@ -1,0 +1,28 @@
+"use client";
+import { useEffect, useState } from "react";
+const useFeaturedAlbums = (token: string | null) => {
+  const [featuredAlbums, setFeaturedAlbums] = useState([]);
+
+  useEffect(() => {
+    const fetchFeaturedAlbums = async () => {
+      if (token) {
+        const url = "https://api.spotify.com/v1/browse/new-releases";
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        console.log("data", data);
+
+        setFeaturedAlbums(data);
+      }
+    };
+    fetchFeaturedAlbums();
+  }, []);
+
+  return { featuredAlbums };
+};
+
+export default useFeaturedAlbums;
