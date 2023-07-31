@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import useAlbum from "../../../hooks/useAlbum";
+import { useToken } from "../../context/TokenContext";
 import AlbumCover from "./components/AlbumCover";
 import AlbumData from "./components/AlbumData";
 import CommentSection from "./components/CommentSection";
@@ -11,36 +13,14 @@ interface Props {
 }
 
 export default function page({ params }: Props) {
-  const [album, setAlbum] = useState([]);
-  const [albumCover, setAlbumCover] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const fetchAlbum = async () => {
-    setLoading(true);
-    const response = await fetch("/api/fetchAlbum", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        albumId: params.album,
-      }),
-    });
-
-    const data = await response.json();
-    setAlbum(data);
-    setAlbumCover(data.images[0].url);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchAlbum();
-  }, []);
-
+  const { token } = useToken(); // Grabs the token from the context
+  const { album } = useAlbum(token, params.album);
+  if (!token || !album) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="flex flex-col justify-center items-center">
-      {/* Album Cover */}
-      <AlbumCover albumCover={albumCover} />
+      <AlbumCover albumCover={album} />
       {/* Album Data Component */}
       <AlbumData albumData={album} />
       {/* Comment Section Component */}

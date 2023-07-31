@@ -6,6 +6,8 @@ interface Props {
 }
 
 export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
+  console.log("recentlyAdded", recentlyAdded);
+
   const images = recentlyAdded[0]?.images[0].url || [];
   const artistName = recentlyAdded[0]?.artists[0].name || "";
   const albumName = recentlyAdded[0]?.name || "";
