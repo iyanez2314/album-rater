@@ -10,11 +10,11 @@ export default function Header() {
   const { data, loading } = useContext(AuthenticationContext);
   const { logout } = useAuth();
   return (
-    <header className="flex justify-center items-center py-4 space-x-2 px-10">
-      <nav className="text-white flex justify-between w-full z-50">
-        <ul className="flex justify-between space-x-5 w-full">
+    <header className="ml-[130px] flex justify-center items-center py-4 space-x-2 px-10">
+      <nav className="text-white flex justify-between w-full">
+        <ul className="flex justify-between space-x-5 w-full z-50">
           <div className="w-full flex bg-red">
-            <li>
+            <li className="ml-5">
               <SearchInput />
             </li>
           </div>

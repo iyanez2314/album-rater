@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import SideNavBar from "../components/SideNavBar";
 import "../styles/globals.css";
 import AuthContext from "./context/AuthContext";
 import { TokenProvider } from "./context/TokenContext";
@@ -18,10 +19,17 @@ export default function RootLayout({
       <body className="isaac-bg">
         <AuthContext>
           <TokenProvider>
-            <main className=" max-w-7xl mx-auto">
-              <Header />
-              {children}
-            </main>
+            <div className="flex h-screen">
+              <div className="fixed h-screen overflow-y-auto">
+                <SideNavBar />
+              </div>
+              <div className="flex flex-col w-full">
+                <Header />
+                <main className="max-w-7xl mx-auto flex-grow overflow-y-auto">
+                  {children}
+                </main>
+              </div>
+            </div>
           </TokenProvider>
         </AuthContext>
       </body>
