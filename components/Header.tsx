@@ -18,15 +18,27 @@ export default function Header() {
               <SearchInput />
             </li>
           </div>
-
-          <div className="flex">
-            <li>
-              <AuthModal login={true} />
-            </li>
-            <li>
-              <AuthModal login={false} />
-            </li>
-          </div>
+          {data ? (
+            <div className="flex items-center space-x-4">
+              <li>
+                <button
+                  className="bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </li>
+            </div>
+          ) : (
+            <div className="flex">
+              <li>
+                <AuthModal login={true} />
+              </li>
+              <li>
+                <AuthModal login={false} />
+              </li>
+            </div>
+          )}
         </ul>
       </nav>
       {/* {data ? (

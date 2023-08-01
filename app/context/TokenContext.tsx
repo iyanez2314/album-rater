@@ -1,5 +1,11 @@
 "use client";
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+} from "react";
 import { fetchToken } from "../../util/fetchToken";
 
 interface ITokenContext {
@@ -15,20 +21,26 @@ const TokenContext = createContext<ITokenContext>({
 export const TokenProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const [expirationTime, setExpirationTime] = useState<number>(0);
+  const fetchingToken = useRef(false);
 
   useEffect(() => {
     const fetchAccessToken = async () => {
-      const response = await fetch("/api/token/fetchToken");
-      const data = await response.json();
-      const accessToken = data.accessToken;
-      if (!accessToken) {
-        throw new Error("No access token found");
+      fetchingToken.current = true;
+      // Check the experation time before making the request
+      if (!token || Date.now() > expirationTime) {
+        const response = await fetch("/api/token/fetchToken");
+        const data = await response.json();
+        const accessToken = data.accessToken;
+        if (!accessToken) {
+          throw new Error("No access token found");
+        }
+        setToken(accessToken);
+        setExpirationTime(Date.now() + 3600 * 1000);
       }
-      setToken(accessToken);
-      setExpirationTime(Date.now() + 3600 * 1000);
+      fetchingToken.current = false;
     };
 
-    if (!token || Date.now() > expirationTime) {
+    if ((!token || Date.now() > expirationTime) && !fetchingToken.current) {
       fetchAccessToken();
     }
   }, [token, expirationTime]);
