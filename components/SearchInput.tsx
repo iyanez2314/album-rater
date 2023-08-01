@@ -38,7 +38,7 @@ export default function SearchInput() {
               ? "bg-white border-[#1DB954] w-72 pl-14"
               : "bg-transparent cursor-pointer"
           }`}
-          placeholder={isActive ? "Search something..." : ""}
+          placeholder={isActive ? "Search For Artist...." : ""}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           onChange={handleInputChange}
@@ -67,7 +67,10 @@ export default function SearchInput() {
         {isActive && (
           <ul className="flex flex-col">
             {searchResults?.artists?.items?.slice(0, 5).map((result: any) => (
-              <li className="text-white p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full">
+              <li
+                key={result.id}
+                className="text-white p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full"
+              >
                 <img
                   src={result?.images?.[0]?.url}
                   alt={result.name}

@@ -10,11 +10,26 @@ export default function Header() {
   const { data, loading } = useContext(AuthenticationContext);
   const { logout } = useAuth();
   return (
-    <header className="flex justify-between items-center py-4 space-x-2 px-10">
-      <div className="flex text-white text-3xl font-bold items-center justify-between w-full space-x-2">
-        <Link href="/">Logo</Link>
-      </div>
-      {data ? (
+    <header className="flex justify-center items-center py-4 space-x-2 px-10">
+      <nav className="text-white flex justify-between w-full z-50">
+        <ul className="flex justify-between space-x-5 w-full">
+          <div className="w-full flex bg-red">
+            <li>
+              <SearchInput />
+            </li>
+          </div>
+
+          <div className="flex">
+            <li>
+              <AuthModal login={true} />
+            </li>
+            <li>
+              <AuthModal login={false} />
+            </li>
+          </div>
+        </ul>
+      </nav>
+      {/* {data ? (
         <nav className="text-white">
           <ul className="flex items-center space-x-4">
             <li>
@@ -31,7 +46,7 @@ export default function Header() {
           </ul>
         </nav>
       ) : (
-        <nav className="text-white">
+        <nav className="text-white flex justify-center items-center">
           <ul className="flex items-center space-x-5">
             <li>
               <SearchInput />
@@ -44,7 +59,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-      )}
+      )} */}
     </header>
   );
 }
