@@ -25,7 +25,7 @@ export async function fetchToken() {
     });
     const json = await response.json();
     tokenCache = json.access_token;
-    tokenExpirationDate = Date.now() + json.expires_in * 1000; // Spotify's tokens usually expire in 1 hour (3600 seconds)
+    tokenExpirationDate = Date.now() + json.expires_in * 1000;
     return json.access_token;
   } catch (error: any) {
     throw new Error("Failed to get access token");
