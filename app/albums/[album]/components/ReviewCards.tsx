@@ -12,7 +12,7 @@ export default function ReviewCards({ review }: { review: Review }) {
   const days = getDays(review.createdAt);
 
   return (
-    <div className=" mt-5 w-full max-w-[350px] bg-[#353535] rounded-[20px] flex flex-col items-center justify-start backdrop-blur-[10px] transition-all duration-500 ease-in-out transform hover:scale-105 hover:cursor-pointer py-[15px]">
+    <div className=" mt-5 w-full min-w-[350px] bg-[#353535] rounded-[20px] flex flex-col items-center justify-start backdrop-blur-[10px] transition-all duration-500 ease-in-out transform hover:scale-105 hover:cursor-pointer py-[15px]">
       <div className="flex items-start w-full max-w-[350px]">
         <div className="w-[70px] h-[70px] ml-[10px] rounded-[10px] bg-gradient-to-r from-[#d7cfcf] to-[#9198e5] transition-all duration-500 ease-in-out hover:from-[#9198e5] hover:to-[#712020]"></div>
         <div className="mb-4 w-[calc(100%-110px)] ml-[10px] text-white font-poppins">

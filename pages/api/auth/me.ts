@@ -10,7 +10,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const bearer = req.headers.authorization;
-  console.log(bearer);
   if (!bearer || !bearer.startsWith("Bearer ")) {
     return res.status(401).json({ errorMessage: "Not Authorized" });
   }
