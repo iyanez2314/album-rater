@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useToken } from "../app/context/TokenContext";
 import useSearch from "../hooks/useSearch";
@@ -67,19 +68,18 @@ export default function SearchInput() {
         {isActive && (
           <ul className="flex flex-col">
             {searchResults?.artists?.items?.slice(0, 5).map((result: any) => (
-              <li
-                key={result.id}
-                className="text-white p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full"
-              >
-                <img
-                  src={result?.images?.[0]?.url}
-                  alt={result.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-                {result.name}
-              </li>
+              <Link href={`/artist/${result.id}`} key={result.id}>
+                <li className="text-white p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full">
+                  <img
+                    src={result?.images?.[0]?.url}
+                    alt={result.name}
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                  {result.name}
+                </li>
+              </Link>
             ))}
           </ul>
         )}
