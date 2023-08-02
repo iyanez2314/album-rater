@@ -9,7 +9,6 @@ export async function fetchToken() {
   ) {
     return tokenCache;
   }
-
   const spotifyClientId = process.env.SPOTIFY_CLIENT_ID || "";
   const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECERET || "";
   const url = "https://accounts.spotify.com/api/token";
@@ -17,7 +16,6 @@ export async function fetchToken() {
   data.append("grant_type", "client_credentials");
   data.append("client_id", spotifyClientId);
   data.append("client_secret", spotifyClientSecret);
-
   try {
     const response = await fetch(url, {
       method: "POST",

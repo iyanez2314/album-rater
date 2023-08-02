@@ -10,16 +10,16 @@ export default function Header() {
   const { data, loading } = useContext(AuthenticationContext);
   const { logout } = useAuth();
   return (
-    <header className="ml-[130px] flex justify-center items-center py-4 space-x-2 px-10">
-      <nav className="text-white flex justify-between w-full">
-        <ul className="flex justify-between space-x-5 w-full z-50">
-          <div className="w-full flex bg-red">
+    <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">
+      <nav className="text-white flex items-center justify-center w-full">
+        <ul className="flex justify-center items-center z-50 w-full">
+          <div className="w-full sm:w-1/2 flex ">
             <li className="ml-5">
               <SearchInput />
             </li>
           </div>
           {data ? (
-            <div className="flex items-center space-x-4">
+            <div className="flex justify-center items-center space-x-4">
               <li>
                 <button
                   className="bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
@@ -30,7 +30,7 @@ export default function Header() {
               </li>
             </div>
           ) : (
-            <div className="flex">
+            <div className="flex justify-end w-full sm:w-1/2">
               <li>
                 <AuthModal login={true} />
               </li>
@@ -41,37 +41,6 @@ export default function Header() {
           )}
         </ul>
       </nav>
-      {/* {data ? (
-        <nav className="text-white">
-          <ul className="flex items-center space-x-4">
-            <li>
-              <button
-                className="bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
-                onClick={logout}
-              >
-                Logout
-              </button>
-            </li>
-            <li>
-              <Link href="/profile/dog">Profile</Link>
-            </li>
-          </ul>
-        </nav>
-      ) : (
-        <nav className="text-white flex justify-center items-center">
-          <ul className="flex items-center space-x-5">
-            <li>
-              <SearchInput />
-            </li>
-            <li>
-              <AuthModal login={true} />
-            </li>
-            <li>
-              <AuthModal login={false} />
-            </li>
-          </ul>
-        </nav>
-      )} */}
     </header>
   );
 }

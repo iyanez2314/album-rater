@@ -20,7 +20,7 @@ export default function page({ params }: Props) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center bg-red-400">
       <AlbumCover albumCover={album} />
       {/* Album Data Component */}
       <AlbumData albumData={album} />
