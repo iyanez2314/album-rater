@@ -54,6 +54,7 @@ export default function AlbumReviewModal({
     albumCover: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [stars, setStars] = useState(0);
 
   useEffect(() => {
     if (data) {
@@ -72,15 +73,24 @@ export default function AlbumReviewModal({
       albumCover: albumCover || "",
     });
   }, [albumId, albumName, data]);
+
+  const handleStars = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const starValue = e.currentTarget.dataset.stars || 0;
+    setStars(Number(e.currentTarget.value));
+    setAlbumReview((prev) => ({ ...prev, rating: starValue.toString() }));
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setAlbumReview((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createComment(albumReview);
   };
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -100,9 +110,11 @@ export default function AlbumReviewModal({
       >
         <Box sx={style}>
           <AlbumReviewModalInput
+            handleStars={handleStars}
             isLoggedIn={isLoggedIn}
             handleInputChange={handleInputChange}
             handleSubmit={handleSubmit}
+            stars={stars}
           />
         </Box>
       </Modal>

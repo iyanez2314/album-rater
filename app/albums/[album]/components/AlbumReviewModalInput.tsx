@@ -1,14 +1,20 @@
+import { Star } from "react-feather";
+
 interface Props {
   handleInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   isLoggedIn: boolean;
+  handleStars: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  stars: number;
 }
 
 export default function AlbumReviewModalInput({
   handleInputChange,
   handleSubmit,
+  handleStars,
+  stars,
   isLoggedIn,
 }: Props) {
   return (
@@ -26,14 +32,29 @@ export default function AlbumReviewModalInput({
             onChange={handleInputChange}
           />
         </div>
-        <div className="my-3 flex justify-between text-sm">
-          <input
+        <div className="my-3 flex gap-2 text-sm">
+          {[...Array(5)].map((_, i) => (
+            <button
+              data-stars={i + 1}
+              key={i}
+              type="button"
+              value={i + 1}
+              name="rating"
+              onClick={handleStars}
+            >
+              <Star
+                fill={i + 1 <= stars ? "#1DB954" : "#fafafa"}
+                className={i + 1 <= stars ? "text-[#1DB954]" : "text-gray-400"}
+              />
+            </button>
+          ))}
+          {/* <input
             type="text"
             className="bg-white border rounded p-2 py-3 w-full"
             placeholder="Rating"
             name="rating"
             onChange={handleInputChange}
-          />
+          /> */}
         </div>
         <div className="my-3 flex justify-between text-sm">
           <textarea
