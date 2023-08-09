@@ -15,11 +15,6 @@ export default function page({ params }: { params: any }) {
   const artistPopularity = artist?.popularity;
   const artistFollowers = artist?.followers?.total;
 
-  console.log(artist);
-  console.log(artistAlbums);
-
-  console.log(params);
-
   return (
     <div className="flex mt-10 flex-col gap-9">
       <div className="flex justify-center gap-9">

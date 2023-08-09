@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FeaturedAlbumsCard from "./FeaturedAlbumsCard";
 
@@ -19,6 +20,8 @@ export default function FeaturedAlbums({ recentlyAdded }: Props) {
             <FeaturedAlbumsCard
               key={album.id}
               id={album.id}
+              artistId={album.artists[0].id}
+              albumRating={album.rating}
               albumName={album.name}
               artistName={album.artists[0].name}
               albumImage={album.images[0].url}
