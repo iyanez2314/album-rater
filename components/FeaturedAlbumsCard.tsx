@@ -41,7 +41,7 @@ export default function FeaturedAlbumsCard({
             <h1>Messages</h1>
           </div>
           <div>
-            <h1 className="font-semibold text-md">{albumName}</h1>
+            <h1 className="font-semibold text-md truncate">{albumName}</h1>
             <Link href={`artist/${artistId}`}>
               <h2 className="w-full font-light text-sm underline cursor-pointer">
                 {artistName}

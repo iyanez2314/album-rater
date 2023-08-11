@@ -17,8 +17,8 @@ export default function page({ params }: { params: any }) {
 
   return (
     <div className="flex mt-10 flex-col gap-9">
-      <div className="flex justify-center gap-9">
-        <div className="flex flex-col text-white">
+      <div className="flex justify-center gap-9  w-full flex-wrap">
+        <div className="flex flex-col text-white text-center">
           <img src={artistImage} alt={artistName} className="rounded" />
           <h1>{artistName}</h1>
           <h2>Genres: {artistGenres}</h2>
@@ -27,7 +27,7 @@ export default function page({ params }: { params: any }) {
         </div>
         {/* Most Recent Album Section */}
         <div className="flex flex-col">
-          <div>
+          <div className="text-center">
             <h1 className="text-3xl underline text-white">Most Recent Album</h1>
           </div>
           <Link
@@ -42,7 +42,7 @@ export default function page({ params }: { params: any }) {
                 width={300}
                 height={300}
               />
-              <div className="truncate">
+              <div className="truncate text-center">
                 <h1>{mostRecentAlbum?.name}</h1>
                 <h2>{mostRecentAlbum?.total_tracks}</h2>
                 <h2>{mostRecentAlbum?.release_date}</h2>
@@ -51,12 +51,10 @@ export default function page({ params }: { params: any }) {
           </Link>
         </div>
       </div>
-      <div>
+      <div className="w-full flex justify-center items-center">
         <h1 className="text-3xl underline text-white">All Albums</h1>
       </div>
-      <div className="flex flex-wrap gap-4">
-        {/* Loop over the rest of the artist albums except the first one */}
-
+      <div className="p-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {artistAlbums?.slice(1).map((album: any) => (
           <Link key={album.id} href={`/albums/${album.id}`}>
             <div className="overflow-y-auto text-white">
@@ -67,7 +65,7 @@ export default function page({ params }: { params: any }) {
                 width={300}
                 height={300}
               />
-              <div className="truncate w-1/2">
+              <div className="truncate w-full text-center">
                 <h1>{album.name}</h1>
                 <h2>{album.total_tracks}</h2>
                 <h2>{album.release_date}</h2>

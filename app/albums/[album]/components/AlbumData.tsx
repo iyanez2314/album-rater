@@ -1,9 +1,12 @@
 "use client";
+import Link from "next/link";
 import { Star } from "react-feather";
 import useAlbumComments from "../../../../hooks/useAlbumComments";
+
 export default function AlbumData({ albumData }: any) {
   const { name } = albumData;
   const artistName = albumData?.artists?.[0].name || "";
+  const artistId = albumData?.artists?.[0].id || "";
   const { albumsComments, error } = useAlbumComments(albumData?.id || "");
 
   const albumAverageRating = () => {
@@ -25,12 +28,15 @@ export default function AlbumData({ albumData }: any) {
       <div className="w-1/2 flex flex-col justify-center items-center">
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex justify-center items-center">
-            <p
-              className="m-2
+            <Link href={`/artist/${artistId}`}>
+              <p
+                className="m-2
               text-md font-light underline cursor-pointer"
-            >
-              {artistName}
-            </p>
+              >
+                {artistName}
+              </p>
+            </Link>
+
             <div className="mx-2 mb-1 flex font-bold justify-start gap-5">
               <button className="rounded-md w-12 cursor-none bg-[#1DB954]">
                 R&B
