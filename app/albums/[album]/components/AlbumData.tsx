@@ -47,7 +47,7 @@ export default function AlbumData({ albumData }: any) {
             </div>
           </div>
 
-          <div className="mx-1 flex gap-2 mt-1 justify-start items-center w-1/2">
+          <div className="mx-1 flex gap-2 mt-1 justify-center items-center w-1/2">
             {albumAverageRating() ? (
               [...Array(albumAverageRating())].map((e, i) => (
                 <Star key={i} className="text-[#1DB954]" fill="currentColor" />

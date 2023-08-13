@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function page({ params }: Props) {
-  const { token } = useToken(); // Grabs the token from the context
+  const { token } = useToken();
   const { album } = useAlbum(token, params.album);
   if (!token || !album) {
     return <div>Loading...</div>;

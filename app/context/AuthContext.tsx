@@ -39,11 +39,12 @@ export default function AuthContext({
     data: null,
   });
 
-  //   TODO: Fetch user from API
   const fetchUser = async () => {
+    console.log("Fetching user");
     setAuthState({ data: null, error: null, loading: true });
     try {
       const jwt = getCookie("jwt");
+      console.log("JWT", jwt);
 
       if (!jwt) {
         return setAuthState({ data: null, error: null, loading: false });
@@ -56,7 +57,7 @@ export default function AuthContext({
       });
       const data = await response.json();
 
-      console.log("in Auth context", data);
+      console.log("Auth", data);
 
       if (data.error) {
         console.log(data.error);

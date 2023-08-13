@@ -13,7 +13,9 @@ import Link from "next/link";
 import { AuthenticationContext } from "../app/context/AuthContext";
 
 export default function SideNavBar() {
-  const { data } = useContext(AuthenticationContext);
+  const { data, error } = useContext(AuthenticationContext);
+  console.log(error);
+  console.log(data?.message);
   return (
     <>
       <div className="relative flex items-center w-full h-full bg-black rounded">
@@ -38,7 +40,7 @@ export default function SideNavBar() {
                   <>
                     <li className="text-white w-full  hover:cursor-pointer hover:bg-[#272727] hover:rounded p-6 items-center flex flex-col transition-all duration-300">
                       <Link
-                        href="profile/user"
+                        href={`/profile/user`}
                         className="items-center flex flex-col"
                       >
                         <User />

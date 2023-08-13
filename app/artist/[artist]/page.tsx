@@ -51,13 +51,15 @@ export default function page({ params }: { params: any }) {
           </Link>
         </div>
       </div>
-      <div className="w-full flex justify-center items-center">
+      <hr className="mt-20 border-[#1DB954]" />
+
+      <div className="my-3 w-full flex justify-center items-center">
         <h1 className="text-3xl underline text-white">All Albums</h1>
       </div>
-      <div className="p-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="p-5  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12">
         {artistAlbums?.slice(1).map((album: any) => (
           <Link key={album.id} href={`/albums/${album.id}`}>
-            <div className="overflow-y-auto text-white">
+            <div className="overflow-y-auto text-white flex flex-col items-center">
               <img
                 className="object-cover rounded"
                 src={album.images[0].url}
@@ -65,10 +67,10 @@ export default function page({ params }: { params: any }) {
                 width={300}
                 height={300}
               />
-              <div className="truncate w-full text-center">
-                <h1>{album.name}</h1>
-                <h2>{album.total_tracks}</h2>
-                <h2>{album.release_date}</h2>
+              <div className=" w-full text-center p-2">
+                <h1 className="truncate">{album.name}</h1>
+                <h2>Total Tracks: {album.total_tracks}</h2>
+                <h2>Release Date: {album.release_date}</h2>
               </div>
             </div>
           </Link>
