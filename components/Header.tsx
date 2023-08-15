@@ -12,9 +12,9 @@ export default function Header() {
   return (
     <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">
       <nav className="text-white flex items-center justify-center w-full">
-        <ul className="flex justify-center items-center z-50 w-full">
-          <div className="w-full sm:w-1/2 flex ">
-            <li className="ml-5">
+        <ul className="flex justify-between items-center z-50 w-full">
+          <div className="w-full sm:w-1/2 flex">
+            <li className="ml-6 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-0">
               <SearchInput />
             </li>
           </div>
