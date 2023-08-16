@@ -12,7 +12,7 @@ export default function AlbumData({ albumData }: any) {
   const albumAverageRating = () => {
     let count = 0;
     for (let i = 0; i < albumsComments?.length; i++) {
-      count = albumsComments[i]?.rating;
+      count += albumsComments[i]?.rating || 0;
     }
 
     return count / albumsComments?.length;
