@@ -59,12 +59,14 @@ export default function AuthModal({ login }: Props) {
 
   return (
     <div>
-      <Button
-        className="bg-[#1DB954] text-white rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+      <button
+        className={`text-white text-center ${
+          login ? "" : "bg-[#1DB954] p-2 rounded"
+        }`}
         onClick={handleOpen}
       >
         {login ? "Login" : "Signup"}
-      </Button>
+      </button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

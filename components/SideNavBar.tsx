@@ -1,20 +1,11 @@
 "use client";
 import React, { useContext, useState } from "react";
-import {
-  ArrowDownRight,
-  ArrowRight,
-  Home,
-  Search,
-  Settings,
-  Sidebar,
-  User,
-  Menu,
-  LogOut,
-} from "react-feather";
+import { Home, User, Menu, LogOut, LogIn } from "react-feather";
 import Link from "next/link";
 import { AuthenticationContext } from "../app/context/AuthContext";
 import { useSideBarNav } from "../app/context/SideBarNavContext";
 import useAuth from "../hooks/useAuth";
+import AuthModal from "./AuthModal";
 
 export default function SideNavBar() {
   const { data, error } = useContext(AuthenticationContext);
@@ -46,6 +37,7 @@ export default function SideNavBar() {
                     Discover
                   </li>
                 </Link>
+
                 {data ? (
                   <>
                     <li
@@ -70,7 +62,12 @@ export default function SideNavBar() {
                       Logout
                     </li>
                   </>
-                ) : null}
+                ) : (
+                  <li className="text-white text-center rounded w-full hover:cursor-pointer  hover:bg-[#272727] hover:rounded p-6 items-center flex flex-col transition-all duration-300">
+                    <LogIn className="items-center flex flex-col" />
+                    <AuthModal login={true} />
+                  </li>
+                )}
               </ul>
             </nav>
           </div>

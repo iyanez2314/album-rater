@@ -32,9 +32,6 @@ export default function Header() {
           ) : (
             <div className="flex justify-end w-full sm:w-1/2">
               <li>
-                <AuthModal login={true} />
-              </li>
-              <li>
                 <AuthModal login={false} />
               </li>
             </div>
