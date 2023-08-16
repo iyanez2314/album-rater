@@ -9,13 +9,16 @@ import {
   Sidebar,
   User,
   Menu,
+  LogOut,
 } from "react-feather";
 import Link from "next/link";
 import { AuthenticationContext } from "../app/context/AuthContext";
 import { useSideBarNav } from "../app/context/SideBarNavContext";
+import useAuth from "../hooks/useAuth";
 
 export default function SideNavBar() {
   const { data, error } = useContext(AuthenticationContext);
+  const { logout } = useAuth();
   const { toggleSlider, isOpen } = useSideBarNav();
   const [active, setActive] = useState("");
   const handleActive = (currentPageActive: string) => {
@@ -59,6 +62,13 @@ export default function SideNavBar() {
                         Profile
                       </Link>
                     </li>
+                    <li
+                      onClick={logout}
+                      className="text-white rounded w-full hover:cursor-pointer  hover:bg-[#272727] hover:rounded p-6 items-center flex flex-col transition-all duration-300"
+                    >
+                      <LogOut className="items-center flex flex-col" />
+                      Logout
+                    </li>
                   </>
                 ) : null}
               </ul>
@@ -66,7 +76,7 @@ export default function SideNavBar() {
           </div>
         </div>
       </div>
-      <div className="text-white mt-6">
+      <div className="text-white mt-6 z-50">
         <Menu onClick={toggleSlider} />
       </div>
     </div>

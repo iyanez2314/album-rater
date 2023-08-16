@@ -6,8 +6,6 @@ interface Props {
 }
 
 export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
-  console.log("recentlyAdded", recentlyAdded);
-
   const images = recentlyAdded[0]?.images[0].url || [];
   const artistName = recentlyAdded[0]?.artists[0].name || "";
   const albumName = recentlyAdded[0]?.name || "";
@@ -24,21 +22,23 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
             />
           </div>
         </div>
-        <section className="p-5 w-full">
-          <div className=" flex flex-col md:flex-row justify-evenly px-20 gap-x-20">
-            <div className="">
+        <section className="flex justify-center items-center w-full">
+          <div className="flex w-full flex-col justify-center sm:justify-evenly md:flex-row items-center px-20 gap-x-20">
+            <div className="text-center">
               <h1 className="text-4xl font-semibold"> Recently Added </h1>
             </div>
-            <div className="h-[150px]  mt-4 flex justify-center flex-col p-4 ml-20">
+            <div className="  w-full mt-4 flex justify-evenly gap-3 flex-row p-4 sm:flex-col items-center">
               <Image
                 alt={albumName}
                 width={175}
                 height={175}
-                className="mx-auto"
+                className="mx-auto object-contain object-center"
                 src={images}
               />
-              <h6 className="font-semisbold">{albumName}</h6>
-              <p className="font-light">{artistName}</p>
+              <div className="mt-0 w-full text-center">
+                <h6 className="font-semisbold">{albumName}</h6>
+                <p className="font-light">{artistName}</p>
+              </div>
             </div>
           </div>
         </section>

@@ -76,8 +76,9 @@ export default function RootLayout({
 function ContentComponent({ children }: { children: React.ReactNode }) {
   const { toggleSlider, isOpen } = useSideBarNav();
   return (
-    <div className="flex h-screen">
-      <div className="text-white mt-6">
+    <main className=" mx-auto flex-grow overflow-y-auto">
+      {/* <div className="flex h-screen w-screen bg-red-500"> */}
+      <div className="text-white absolute top-6">
         <Menu onClick={toggleSlider} />
       </div>
       <div
@@ -92,10 +93,11 @@ function ContentComponent({ children }: { children: React.ReactNode }) {
         <div className="w-full flex justify-center">
           <Header />
         </div>
-        <main className=" max-w-7xl mx-auto flex-grow overflow-y-auto pr-6">
-          {children}
-        </main>
+        {/* <main className="max-w-7xl mx-auto flex-grow overflow-y-auto"> */}
+        {children}
+        {/* </main> */}
       </div>
-    </div>
+      {/* </div> */}
+    </main>
   );
 }

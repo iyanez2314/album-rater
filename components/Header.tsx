@@ -12,22 +12,22 @@ export default function Header() {
   return (
     <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">
       <nav className="text-white flex items-center justify-center w-full">
-        <ul className="flex justify-between items-center z-50 w-full">
-          <div className="w-full sm:w-1/2 flex">
-            <li className="ml-6 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-0">
+        <ul className="flex justify-center items-center z-0 w-1/2 sm:w-full md:w-full">
+          <div className="w-1/2 z-0  sm:w-1/2 flex">
+            <li className="ml-6 z-0 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-0">
               <SearchInput />
             </li>
           </div>
           {data ? (
             <div className="flex justify-center items-center space-x-4">
-              <li>
+              {/* <li>
                 <button
                   className="bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
                   onClick={logout}
                 >
                   Logout
                 </button>
-              </li>
+              </li> */}
             </div>
           ) : (
             <div className="flex justify-end w-full sm:w-1/2">
