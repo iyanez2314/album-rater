@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Sidebar } from "react-feather";
+import { Menu } from "react-feather";
 import Header from "../components/Header";
 import SideNavBar from "../components/SideNavBar";
 import "../styles/globals.css";
@@ -77,17 +77,15 @@ function ContentComponent({ children }: { children: React.ReactNode }) {
   const { toggleSlider, isOpen } = useSideBarNav();
   return (
     <div className="flex h-screen">
-      <div className="bg-red-500 flex">
-        {/* <div className="text-white w-10">
-          <Sidebar onClick={toggleSlider} />
-        </div> */}
-        <div
-          className={`fixed h-screen overflow-y-auto ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300`}
-        >
-          <SideNavBar />
-        </div>
+      <div className="text-white mt-6">
+        <Menu onClick={toggleSlider} />
+      </div>
+      <div
+        className={`fixed h-screen overflow-y-auto ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 z-50`}
+      >
+        <SideNavBar />
       </div>
 
       <div className="flex flex-col w-full">

@@ -11,7 +11,7 @@ export const SideBarNavProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggleSlider = () => {
     setIsOpen(!isOpen);
   };

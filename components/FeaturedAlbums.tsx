@@ -14,7 +14,7 @@ export default function FeaturedAlbums({ recentlyAdded }: Props) {
           <h1>Featured Albums</h1>
         </div>
       </div>
-      <div className="p-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 ">
+      <div className="p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 ">
         {recentlyAdded.map((album: any) => {
           return (
             <FeaturedAlbumsCard
