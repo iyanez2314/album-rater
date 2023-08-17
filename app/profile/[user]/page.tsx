@@ -15,6 +15,12 @@ export interface Comments {
   userId: number;
   createdAt: number;
   updatedAt: number;
+  album: Album;
+}
+
+interface Album {
+  albumId: number;
+  albumCover: string;
 }
 
 export default function page() {
