@@ -10,8 +10,6 @@ export default function SearchInput() {
   const [inputvalue, setInputValue] = useState("");
   const { token } = useToken(); // Grabs the token from the context
   const { searchResults } = useSearch(inputvalue, 300, token);
-  console.log(searchResults);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputFilled(e.target.value !== "");
     setInputValue(e.target.value);
