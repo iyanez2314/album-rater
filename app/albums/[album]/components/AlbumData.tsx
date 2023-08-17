@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Star } from "react-feather";
 import useAlbumComments from "../../../../hooks/useAlbumComments";
 
+interface AlbumComment {
+  rating: number;
+}
+
 export default function AlbumData({ albumData }: any) {
   const { name } = albumData;
   const artistName = albumData?.artists?.[0].name || "";
@@ -12,10 +16,10 @@ export default function AlbumData({ albumData }: any) {
   const albumAverageRating = () => {
     let count = 0;
     for (let i = 0; i < albumsComments?.length; i++) {
-      count += albumsComments[i]?.rating || 0;
+      count += (albumsComments[i] as AlbumComment).rating || 0;
     }
 
-    return count / albumsComments?.length;
+    return Math.round(count / (albumsComments?.length || 1));
   };
 
   return (
