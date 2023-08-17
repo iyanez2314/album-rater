@@ -12,6 +12,16 @@ export interface Review {
   userId: number;
   createdAt: Date;
   updatedAt: Date;
+  user: User;
+}
+
+interface User {
+  id: number;
+  email: string;
+  username: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export default function CommentSection({
