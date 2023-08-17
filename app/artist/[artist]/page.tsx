@@ -7,7 +7,7 @@ import { useToken } from "../../context/TokenContext";
 export default function page({ params }: { params: any }) {
   const { token } = useToken();
   const { artist, artistAlbums } = useArtist(token, params.artist);
-  const mostRecentAlbum = artistAlbums?.[0];
+  const mostRecentAlbum = artistAlbums?.items[0];
 
   const artistName = artist?.name;
   const artistImage = artist?.images?.[0].url;
@@ -57,7 +57,7 @@ export default function page({ params }: { params: any }) {
         <h1 className="text-3xl underline text-white">All Albums</h1>
       </div>
       <div className="p-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-        {artistAlbums?.slice(1).map((album: any) => (
+        {artistAlbums?.items.slice(1).map((album: any) => (
           <Link key={album.id} href={`/albums/${album.id}`}>
             <div className="overflow-y-auto text-white flex flex-col items-center">
               <img
