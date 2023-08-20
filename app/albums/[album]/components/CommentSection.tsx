@@ -46,7 +46,7 @@ export default function CommentSection({
         }),
       });
       if (!response.ok) {
-        console.log(response);
+        console.log("Response from the comments => ", response.json());
         throw new Error("Failed to fetch reviews.");
       }
       const data = await response.json();
