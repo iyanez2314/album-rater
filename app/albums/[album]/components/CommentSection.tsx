@@ -50,6 +50,7 @@ export default function CommentSection({
         throw new Error("Failed to fetch reviews.");
       }
       const data = await response.json();
+      console.log("Data from the comments => ", data);
       setReviews(data.album?.reviews || []);
     } catch (error: any) {
       setError(error.message);
