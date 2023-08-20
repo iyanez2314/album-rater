@@ -11,7 +11,6 @@ export default async function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  // Make sure to parse the albumId to number, as your schema defines the album ID as a number.
   const { albumId } = req.body;
 
   console.log("req.body", req.body);
