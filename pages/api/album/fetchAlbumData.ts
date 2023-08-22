@@ -10,11 +10,7 @@ export default async function handler(
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
-
   const { albumId } = req.body;
-
-  console.log("req.body", req.body);
-
   try {
     const album = await prisma.album.findUnique({
       where: { albumId: albumId as string },

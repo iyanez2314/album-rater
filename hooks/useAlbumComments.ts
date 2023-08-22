@@ -53,7 +53,6 @@ const useAlbumComments = (albumId: number) => {
         }
         const data: AlbumComments = await response.json();
         console.log(data);
-
         setAlbumsComments(data.album.reviews);
       } catch (error: any) {
         setError(error.message);

@@ -45,10 +45,6 @@ export default function CommentSection({
           albumId: params.album,
         }),
       });
-      const responseData = await response.json();
-
-      console.log("Response Data => ", responseData);
-
       if (!response.ok) {
         throw new Error("Failed to fetch reviews.");
       }
@@ -56,8 +52,8 @@ export default function CommentSection({
       console.log("Data from the comments => ", data);
       setReviews(data.album?.reviews || []);
     } catch (error: any) {
+      console.log(error.stack);
       setError(error.message);
-      console.log(error);
     }
   };
 
