@@ -23,7 +23,7 @@ export default function AlbumData({ albumData }: any) {
   };
 
   return (
-    <div className="text-white flex  flex-col justify-center items-center w-full">
+    <div className="text-white flex flex-col justify-center items-center w-full h-[100px] mt-5">
       <div className=" flex justify-center mx-12 w-full items-center p-2">
         <h1 className="text-sm md:text-lg lg:text-lg xl:text-2xl font-semibold">
           {name}

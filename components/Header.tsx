@@ -11,9 +11,9 @@ export default function Header() {
   const { logout } = useAuth();
   return (
     <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">
-      <nav className="text-white flex items-center justify-center w-full">
-        <ul className="flex justify-center items-center z-0 w-1/2 sm:w-full md:w-full">
-          <div className="w-1/2 z-0  sm:w-1/2 flex">
+      <nav className="text-white flex items-center justify-evenly w-full">
+        <ul className="flex justify-center items-center z-0 w-full sm:w-full md:w-full">
+          <div className="w-full z-0 sm:w-1/2 flex">
             <li className="ml-6 z-0 sm:ml-0 md:ml-0 lg:ml-0 xl:ml-0">
               <SearchInput />
             </li>

@@ -78,7 +78,7 @@ function ContentComponent({ children }: { children: React.ReactNode }) {
   return (
     <main className=" mx-auto flex-grow overflow-y-auto">
       {/* <div className="flex h-screen w-screen bg-red-500"> */}
-      <div className="text-white absolute top-6 left-2">
+      <div className="text-white top-6 left-2 fixed">
         <Menu onClick={toggleSlider} />
       </div>
       <div
