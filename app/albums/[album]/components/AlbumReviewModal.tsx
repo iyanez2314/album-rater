@@ -33,17 +33,21 @@ interface State {
   albumCover: string;
 }
 
+interface Props {
+  albumId: string;
+  albumName: string;
+  albumCover: any;
+  handleRefreshKey: () => void;
+}
+
 export default function AlbumReviewModal({
   albumId,
   albumName,
   albumCover,
-}: {
-  albumId: string;
-  albumName: string;
-  albumCover: any;
-}) {
+  handleRefreshKey,
+}: Props) {
   const { data } = useContext(AuthenticationContext);
-  const { createComment } = useComment();
+  const { createComment, loading } = useComment();
   const [albumReview, setAlbumReview] = useState<State>({
     title: "",
     rating: "",
@@ -88,7 +92,12 @@ export default function AlbumReviewModal({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createComment(albumReview);
+    createComment(albumReview, () => {
+      handleClose();
+      if (handleRefreshKey) {
+        handleRefreshKey();
+      }
+    });
   };
 
   const [open, setOpen] = useState(false);
@@ -110,6 +119,7 @@ export default function AlbumReviewModal({
       >
         <Box sx={style}>
           <AlbumReviewModalInput
+            loading={loading}
             handleStars={handleStars}
             isLoggedIn={isLoggedIn}
             handleInputChange={handleInputChange}

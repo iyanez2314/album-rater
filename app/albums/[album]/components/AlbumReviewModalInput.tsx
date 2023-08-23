@@ -8,6 +8,7 @@ interface Props {
   isLoggedIn: boolean;
   handleStars: (e: React.MouseEvent<HTMLButtonElement>) => void;
   stars: number;
+  loading: boolean;
 }
 
 export default function AlbumReviewModalInput({
@@ -16,6 +17,7 @@ export default function AlbumReviewModalInput({
   handleStars,
   stars,
   isLoggedIn,
+  loading,
 }: Props) {
   return (
     <div>
@@ -48,13 +50,6 @@ export default function AlbumReviewModalInput({
               />
             </button>
           ))}
-          {/* <input
-            type="text"
-            className="bg-white border rounded p-2 py-3 w-full"
-            placeholder="Rating"
-            name="rating"
-            onChange={handleInputChange}
-          /> */}
         </div>
         <div className="my-3 flex justify-between text-sm">
           <textarea
@@ -73,7 +68,7 @@ export default function AlbumReviewModalInput({
               : "bg-[#1DB954] text-white rounded p-2 font-thin hover:cursor-not-allowed hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
           }
         >
-          Comment
+          {loading ? "submiting..." : "Submit Comment"}
         </button>
       </form>
     </div>

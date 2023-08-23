@@ -33,7 +33,9 @@ export default function CommentSection({
 }) {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
+  // TODO: Make this a custom hook
   const fetchAllReviews = async () => {
     try {
       const response = await fetch("/api/album/fetchAlbumData", {
@@ -59,7 +61,11 @@ export default function CommentSection({
 
   useEffect(() => {
     fetchAllReviews();
-  }, []);
+  }, [refreshKey]);
+
+  const handleRefreshKey = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
 
   if (error) return <div>{error}</div>;
 
@@ -73,6 +79,7 @@ export default function CommentSection({
           </span>
         </h1>
         <AlbumReviewModal
+          handleRefreshKey={handleRefreshKey}
           albumCover={albumData?.images?.[0]?.url}
           albumId={albumData?.id}
           albumName={albumData?.name}
