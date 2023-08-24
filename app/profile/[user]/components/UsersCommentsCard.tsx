@@ -4,7 +4,7 @@ import { Comments } from "../page";
 export default function UsersCommentsCard({ comment }: { comment: Comments }) {
   return (
     <Link href={`/albums/${comment?.album?.albumId}`}>
-      <div className="max-w-xs bg-white shadow-md rounded-md overflow-hidden border border-transparent">
+      <div className="max-w-xs bg-white shadow-md rounded-md overflow-hidden border border-transparent w-full h-[275px]">
         <img
           src={comment?.album?.albumCover}
           className="w-full h-36 object-cover"

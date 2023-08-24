@@ -70,7 +70,7 @@ export default function page() {
 
   return (
     <div className="flex justify-evenly items-center min-h-screen flex-col mt-40 gap-20 mb-16">
-      <div className="bg-black rounded-lg text-white h-[500px] w-96 flex justify-center items-center flex-col space-y-2">
+      <div className="bg-black rounded-lg text-white h-[500px] w-1/2 flex justify-center items-center flex-col space-y-2">
         <div className="mb-3">
           <h1 className="text-lg font-semibold underline">
             Update Profile Info
@@ -120,7 +120,7 @@ export default function page() {
           </button>
         </form>
       </div>
-      <div className="bg-black rounded-lg text-white h-full items-center w-full flex flex-col space-y-2">
+      <div className="bg-black rounded-lg text-white h-full items-center w-1/2 flex flex-col space-y-2">
         <div className="w-full">
           <Tabs>
             <Tab label="Comments Count">
@@ -133,7 +133,7 @@ export default function page() {
               <div className="flex flex-col justify-center items-center mt-20 font-thin">
                 <h1>Comments Made On Albums</h1>
               </div>
-              <div className="grid grid-cols-3  my-5 mx-12 gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid grid-cols-3 my-5 mx-3 gap-5  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {loading ? (
                   <div className="flex justify-center items-center font-thin">
                     <p>Loading...</p>

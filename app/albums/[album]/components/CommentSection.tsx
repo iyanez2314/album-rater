@@ -1,28 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import useReviews from "../../../../hooks/useReviews";
 import AlbumReviewModal from "./AlbumReviewModal";
 import ReviewCards from "./ReviewCards";
-
-export interface Review {
-  id: number;
-  title: string;
-  body: string;
-  rating: number;
-  albumId: string;
-  userId: number;
-  createdAt: Date;
-  updatedAt: Date;
-  user: User;
-}
-
-interface User {
-  id: number;
-  email: string;
-  username: string;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { Review } from "../../../../hooks/useReviews";
 
 export default function CommentSection({
   albumData,
@@ -31,42 +12,11 @@ export default function CommentSection({
   albumData: any;
   params: any;
 }) {
-  const [reviews, setReviews] = useState([]);
-  const [error, setError] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
-
-  // TODO: Make this a custom hook
-  const fetchAllReviews = async () => {
-    try {
-      const response = await fetch("/api/album/fetchAlbumData", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          albumId: params.album,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to fetch reviews.");
-      }
-      const data = await response.json();
-      console.log("Data from the comments => ", data);
-      setReviews(data.album?.reviews || []);
-    } catch (error: any) {
-      console.log(error.stack);
-      setError(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllReviews();
-  }, [refreshKey]);
-
+  const { reviews, error } = useReviews(params.album, refreshKey);
   const handleRefreshKey = () => {
     setRefreshKey((prev) => prev + 1);
   };
-
   if (error) return <div>{error}</div>;
 
   return (
@@ -85,7 +35,7 @@ export default function CommentSection({
           albumName={albumData?.name}
         />
       </div>
-      {reviews.length === 0 ? (
+      {reviews?.length === 0 ? (
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-semibold">No Reviews Yet</h1>
           <p className="text-lg font-thin">Be the first to review this album</p>
