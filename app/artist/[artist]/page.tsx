@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import FeaturedAlbumsCard from "../../../components/FeaturedAlbumsCard";
 import useArtist from "../../../hooks/useArtist";
 import { useToken } from "../../context/TokenContext";
 
@@ -9,17 +10,19 @@ export default function page({ params }: { params: any }) {
   const { artist, artistAlbums } = useArtist(token, params.artist);
   const mostRecentAlbum = artistAlbums?.items[0];
 
-  const artistName = artist?.name;
+  const artistName = artist?.name || "";
   const artistImage = artist?.images?.[0].url;
   const artistGenres = artist?.genres;
   const artistPopularity = artist?.popularity;
   const artistFollowers = artist?.followers?.total;
 
   return (
-    <div className="flex mt-10 flex-col gap-9">
+    <div className="flex mt-10 flex-col gap-9 items-center">
       <div className="flex justify-center gap-9  w-full flex-wrap">
         <div className="flex flex-col text-white text-center">
-          <img src={artistImage} alt={artistName} className="rounded" />
+          <div className="p-7">
+            <img src={artistImage} alt={artistName} className="rounded" />
+          </div>
           <h1>{artistName}</h1>
           <h2>Genres: {artistGenres}</h2>
           <h2>Popularity: {artistPopularity}</h2>
@@ -51,29 +54,36 @@ export default function page({ params }: { params: any }) {
           </Link>
         </div>
       </div>
-      <hr className="mt-10 border-[#1DB954]" />
-
+      <hr className="mt-10 border-[#1DB954] w-full" />
       <div className="my-3 w-full flex justify-center items-center">
         <h1 className="text-3xl underline text-white">All Albums</h1>
       </div>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 p-10 my-5 mx-3 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {artistAlbums?.items.slice(1).map((album: any) => (
-          <Link key={album.id} href={`/albums/${album.id}`}>
-            <div className="overflow-y-auto text-white flex flex-col items-center">
-              <img
-                className="object-cover rounded"
-                src={album.images[0].url}
-                alt={album.name}
-                width={300}
-                height={300}
-              />
-              <div className=" w-full text-center p-2">
-                <h1 className="truncate">{album.name}</h1>
-                <h2>Total Tracks: {album.total_tracks}</h2>
-                <h2>Release Date: {album.release_date}</h2>
-              </div>
-            </div>
-          </Link>
+          <FeaturedAlbumsCard
+            albumRating={1}
+            key={album.id}
+            id={album.id}
+            albumName={album.name}
+            artistName={artistName}
+            albumImage={album.images[0].url}
+          />
+          // <Link key={album.id} href={`/albums/${album.id}`}>
+          //   <div className="overflow-y-auto text-white flex flex-col items-center">
+          //     <img
+          //       className="object-cover rounded"
+          //       src={album.images[0].url}
+          //       alt={album.name}
+          //       width={300}
+          //       height={300}
+          //     />
+          //     <div className=" w-full text-center p-2">
+          //       <h1 className="truncate">{album.name}</h1>
+          //       <h2>Total Tracks: {album.total_tracks}</h2>
+          //       <h2>Release Date: {album.release_date}</h2>
+          //     </div>
+          //   </div>
+          // </Link>
         ))}
       </div>
     </div>

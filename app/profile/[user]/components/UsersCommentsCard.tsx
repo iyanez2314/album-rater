@@ -1,23 +1,29 @@
 import Link from "next/link";
 import { Comments } from "../page";
+import EditModal from "./EditModal";
 
 export default function UsersCommentsCard({ comment }: { comment: Comments }) {
   return (
-    <Link href={`/albums/${comment?.album?.albumId}`}>
-      <div className="max-w-xs bg-white shadow-md rounded-md overflow-hidden border border-transparent w-full h-[275px]">
+    <div className="max-w-xs bg-white shadow-md rounded-md overflow-hidden border border-transparent w-full h-[275px]">
+      <Link href={`/albums/${comment?.album?.albumId}`}>
         <img
           src={comment?.album?.albumCover}
           className="w-full h-36 object-cover"
         />
-        {/* <div className="w-full h-36 bg-purple-300 object-cover"></div> */}
-        <div className="p-4">
+      </Link>
+
+      {/* <div className="w-full h-36 bg-purple-300 object-cover"></div> */}
+      <div className="p-4">
+        <div className="flex items-center justify-between">
           <a href="#" className="text-lg font-semibold text-black">
             {comment.title}
           </a>
-
-          <p className="mt-2 text-gray-600 text-sm">{comment.body}</p>
+          <div className="w-1/2 flex justify-end">
+            <EditModal />
+          </div>
         </div>
+        <p className="mt-2 text-gray-600 text-sm">{comment.body}</p>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import { ArrowDown, Star } from "react-feather";
-import { Review } from "./CommentSection";
+import { Review } from "../../../../hooks/useReviews";
 import getDays from "../../../../util/days";
 
 export default function ReviewCards({ review }: { review: Review }) {
@@ -11,7 +11,6 @@ export default function ReviewCards({ review }: { review: Review }) {
   };
   const days = getDays(review.createdAt);
   const reviewRating = review.rating;
-  console.log(review);
 
   return (
     <div className=" mt-5 w-full min-w-[350px] bg-[#353535] rounded-[20px] flex flex-col items-center justify-start backdrop-blur-[10px] transition-all duration-500 ease-in-out transform hover:scale-105 hover:cursor-pointer py-[15px]">
