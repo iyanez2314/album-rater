@@ -9,6 +9,7 @@ import { Edit } from "react-feather";
 import { Comments } from "../page";
 import EditModalInputs from "./EditModalInputs";
 import useUpdateComment from "../../../../hooks/useUpdateComment";
+import useDeleteComment from "../../../../hooks/useDeleteComment";
 
 interface State {
   title: string;
@@ -32,28 +33,29 @@ const style = {
 
 export default function EditModal({ comment }: Props) {
   const { updateComment, loading } = useUpdateComment();
+  const { deleteComment } = useDeleteComment();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   const [inputs, setInputs] = useState<State>({
     title: comment.title,
     body: comment.body,
     id: comment.id,
   });
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await updateComment(inputs);
     handleClose();
   };
-
+  const handleDelete = async (commentId: number) => {
+    await deleteComment(commentId);
+    handleClose();
+  };
   return (
     <div>
       <Edit
@@ -61,7 +63,6 @@ export default function EditModal({ comment }: Props) {
         size={20}
         onClick={handleOpen}
       />
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -76,33 +77,13 @@ export default function EditModal({ comment }: Props) {
         }}
       >
         <Fade in={open}>
-          <Box sx={style} className="p-5 flex justify-center flex-col ">
+          <Box sx={style} className="p-5 flex justify-center flex-col rounded">
             <EditModalInputs
+              handleDelete={handleDelete}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
               comment={comment}
             />
-            {/* {loading ? (
-              <div className=" py-24 px-2 h-[500px] flex justify-center">
-                <CircularProgress />
-              </div>
-            ) : (
-              <div>
-                <p className="font-semibold text-red-500 underline">
-                  {error ? error : null}
-                </p>
-                <p className="text-2xl">
-                  {renderContent("Sign In", "Create Account")}
-                </p>
-                <p>{data ? `Welcome ${data?.username}` : "Please login"}</p>
-                <AuthInput
-                  handleSubmit={handleSubmit}
-                  login={login}
-                  inputs={inputs}
-                  handleInputChange={handleInputChange}
-                />
-              </div>
-            )} */}
           </Box>
         </Fade>
       </Modal>

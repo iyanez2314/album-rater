@@ -1,0 +1,64 @@
+"filename", "language", "JavaScript", "JSON", "JSON with Comments", "TypeScript", "XML", "Markdown", "CSS", "TypeScript React", "Prisma", "comment", "blank", "total"
+"/Users/isaacyanez/Desktop/Everything/album-rater/README.md", "Markdown", 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 14, 35
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumCover.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 2, 12
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumData.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 61, 0, 0, 8, 69
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumReviewModal.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 123, 0, 0, 11, 134
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumReviewModalInput.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 3, 77
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/CommentSection.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 4, 57
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/ReviewCards.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 60, 0, 0, 3, 63
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/loading.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 2, 12
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/page.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 27, 0, 2, 4, 33
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/artist/[artist]/page.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 71, 0, 17, 4, 92
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/context/AuthContext.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 14, 83
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/context/SideBarNavContext.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 4, 26
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/context/TokenContext.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 47, 0, 1, 8, 56
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/layout.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 51, 0, 47, 6, 104
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/loading.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 2, 10
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/page.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 3, 25
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/EditModal.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 82, 0, 21, 9, 112
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/EditModalInputs.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 5, 58
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/Tab.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 4, 13
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/Tabs.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 7, 50
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/UsersCommentsCard.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 26, 0, 1, 3, 30
+"/Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/page.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 148, 0, 4, 10, 162
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/AuthInput.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 71, 0, 0, 2, 73
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/AuthModal.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 103, 0, 0, 9, 112
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/FeaturedAlbums.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 3, 35
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/FeaturedAlbumsCard.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 3, 56
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/Header.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 34, 0, 8, 2, 44
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/RecentlyAddedContainer.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 2, 49
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/SearchInput.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 82, 0, 0, 6, 88
+"/Users/isaacyanez/Desktop/Everything/album-rater/components/SideNavBar.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 79, 0, 0, 3, 82
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAlbum.ts", "TypeScript", 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 3, 26
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAlbumComments.ts", "TypeScript", 0, 0, 0, 60, 0, 0, 0, 0, 0, 1, 8, 69
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useArtist.ts", "TypeScript", 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 11, 106
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAuth.ts", "TypeScript", 0, 0, 0, 97, 0, 0, 0, 0, 0, 0, 8, 105
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useComment.ts", "TypeScript", 0, 0, 0, 58, 0, 0, 0, 0, 0, 0, 5, 63
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useFeaturedAlbums.ts", "TypeScript", 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 4, 27
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useReviews.ts", "TypeScript", 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 9, 62
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useSearch.ts", "TypeScript", 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 7, 70
+"/Users/isaacyanez/Desktop/Everything/album-rater/hooks/useUpdateComment.ts", "TypeScript", 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 5, 41
+"/Users/isaacyanez/Desktop/Everything/album-rater/next.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 9
+"/Users/isaacyanez/Desktop/Everything/album-rater/package-lock.json", "JSON", 0, 4843, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4844
+"/Users/isaacyanez/Desktop/Everything/album-rater/package.json", "JSON", 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 1, 42
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/album/fetchAlbumData.ts", "TypeScript", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 4, 32
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/me.ts", "TypeScript", 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 10, 50
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/signin.ts", "TypeScript", 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 19, 83
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/signup.ts", "TypeScript", 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 16, 85
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/updateInfo.ts", "TypeScript", 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, 61
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/createComment.ts", "TypeScript", 0, 0, 0, 44, 0, 0, 0, 0, 0, 4, 9, 57
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/fetchUserComments.ts", "TypeScript", 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 7, 41
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/updateComment.ts", "TypeScript", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 8, 38
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/fetchAlbum.ts", "TypeScript", 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 2, 31
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/fetchRecentlyAddedAlbums.ts", "TypeScript", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 2, 30
+"/Users/isaacyanez/Desktop/Everything/album-rater/pages/api/token/fetchToken.ts", "TypeScript", 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 2, 21
+"/Users/isaacyanez/Desktop/Everything/album-rater/postcss.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"/Users/isaacyanez/Desktop/Everything/album-rater/prisma/schema.prisma", "Prisma", 0, 0, 0, 0, 0, 0, 0, 0, 37, 2, 11, 50
+"/Users/isaacyanez/Desktop/Everything/album-rater/public/next.svg", "XML", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/isaacyanez/Desktop/Everything/album-rater/public/vercel.svg", "XML", 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/isaacyanez/Desktop/Everything/album-rater/styles/globals.css", "CSS", 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"/Users/isaacyanez/Desktop/Everything/album-rater/tailwind.config.js", "JavaScript", 17, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 19
+"/Users/isaacyanez/Desktop/Everything/album-rater/tsconfig.json", "JSON with Comments", 0, 0, 26, 0, 0, 0, 0, 0, 0, 2, 1, 29
+"/Users/isaacyanez/Desktop/Everything/album-rater/util/days.ts", "TypeScript", 0, 0, 0, 15, 0, 0, 0, 0, 0, 3, 3, 21
+"/Users/isaacyanez/Desktop/Everything/album-rater/util/fetchToken.ts", "TypeScript", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 2, 32
+"Total", "-", 29, 4884, 26, 989, 2, 21, 9, 1570, 37, 115, 335, 8017

@@ -11,7 +11,6 @@ export default function UsersCommentsCard({ comment }: { comment: Comments }) {
           className="w-full h-36 object-cover"
         />
       </Link>
-
       {/* <div className="w-full h-36 bg-purple-300 object-cover"></div> */}
       <div className="p-4">
         <div className="flex items-center justify-between">

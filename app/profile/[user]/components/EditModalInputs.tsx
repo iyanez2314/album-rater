@@ -8,12 +8,14 @@ interface Props {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleDelete: (commentId: number) => void;
 }
 
 export default function EditModalInputs({
   comment,
   handleInputChange,
   handleSubmit,
+  handleDelete,
 }: Props) {
   return (
     <>
@@ -37,7 +39,6 @@ export default function EditModalInputs({
             onChange={handleInputChange}
           />
         </div>
-
         <div>
           <label className="text-sm font-light">Comment</label>
           <textarea
@@ -48,10 +49,16 @@ export default function EditModalInputs({
           ></textarea>
         </div>
 
-        <button className="text-white text-center bg-[#1DB954] p-2 rounded">
+        <button className="text-white text-center bg-[#1DB954] p-2 rounded hover:opacity-80 transition-all duration-200 ease-in-out ">
           Update Comment
         </button>
       </form>
+      <button
+        onClick={() => handleDelete(comment.id)}
+        className="mt-3 text-white text-center bg-red-600 p-2 rounded hover:opacity-80 transition-all duration-200 ease-in-out "
+      >
+        Delete Comment
+      </button>
     </>
   );
 }

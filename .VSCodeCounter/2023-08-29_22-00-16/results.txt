@@ -1,0 +1,121 @@
+Date : 2023-08-29 22:00:16
+Directory : /Users/isaacyanez/Desktop/Everything/album-rater
+Total : 62 files,  7567 codes, 115 comments, 335 blanks, all 8017 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      4,884 |          0 |          2 |      4,886 |
+| TypeScript React   |         29 |      1,570 |        101 |        146 |      1,817 |
+| TypeScript         |         22 |        989 |          8 |        154 |      1,151 |
+| Prisma             |          1 |         37 |          2 |         11 |         50 |
+| JavaScript         |          3 |         29 |          2 |          4 |         35 |
+| JSON with Comments |          1 |         26 |          2 |          1 |         29 |
+| Markdown           |          1 |         21 |          0 |         14 |         35 |
+| CSS                |          1 |          9 |          0 |          3 |         12 |
+| XML                |          2 |          2 |          0 |          0 |          2 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                     | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                        |         62 |      7,567 |        115 |        335 |      8,017 |
+| . (Files)                                                                                                |          7 |      4,960 |          4 |         21 |      4,985 |
+| app                                                                                                      |         21 |      1,069 |         93 |        116 |      1,278 |
+| app (Files)                                                                                              |          3 |         81 |         47 |         11 |        139 |
+| app/albums                                                                                               |          8 |        418 |          2 |         37 |        457 |
+| app/albums/[album]                                                                                       |          8 |        418 |          2 |         37 |        457 |
+| app/albums/[album] (Files)                                                                               |          2 |         37 |          2 |          6 |         45 |
+| app/albums/[album]/components                                                                            |          6 |        381 |          0 |         31 |        412 |
+| app/artist                                                                                               |          1 |         71 |         17 |          4 |         92 |
+| app/artist/[artist]                                                                                      |          1 |         71 |         17 |          4 |         92 |
+| app/context                                                                                              |          3 |        138 |          1 |         26 |        165 |
+| app/profile                                                                                              |          6 |        361 |         26 |         38 |        425 |
+| app/profile/[user]                                                                                       |          6 |        361 |         26 |         38 |        425 |
+| app/profile/[user] (Files)                                                                               |          1 |        148 |          4 |         10 |        162 |
+| app/profile/[user]/components                                                                            |          5 |        213 |         22 |         28 |        263 |
+| components                                                                                               |          8 |        501 |          8 |         30 |        539 |
+| hooks                                                                                                    |          9 |        508 |          1 |         60 |        569 |
+| pages                                                                                                    |         11 |        436 |          4 |         89 |        529 |
+| pages/api                                                                                                |         11 |        436 |          4 |         89 |        529 |
+| pages/api (Files)                                                                                        |          2 |         57 |          0 |          4 |         61 |
+| pages/api/album                                                                                          |          1 |         28 |          0 |          4 |         32 |
+| pages/api/auth                                                                                           |          4 |        224 |          0 |         55 |        279 |
+| pages/api/comments                                                                                       |          3 |        108 |          4 |         24 |        136 |
+| pages/api/token                                                                                          |          1 |         19 |          0 |          2 |         21 |
+| prisma                                                                                                   |          1 |         37 |          2 |         11 |         50 |
+| public                                                                                                   |          2 |          2 |          0 |          0 |          2 |
+| styles                                                                                                   |          1 |          9 |          0 |          3 |         12 |
+| util                                                                                                     |          2 |         45 |          3 |          5 |         53 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                 | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/isaacyanez/Desktop/Everything/album-rater/README.md                                               | Markdown           |         21 |          0 |         14 |         35 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumCover.tsx            | TypeScript React   |         10 |          0 |          2 |         12 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumData.tsx             | TypeScript React   |         61 |          0 |          8 |         69 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumReviewModal.tsx      | TypeScript React   |        123 |          0 |         11 |        134 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/AlbumReviewModalInput.tsx | TypeScript React   |         74 |          0 |          3 |         77 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/CommentSection.tsx        | TypeScript React   |         53 |          0 |          4 |         57 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/components/ReviewCards.tsx           | TypeScript React   |         60 |          0 |          3 |         63 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/loading.tsx                          | TypeScript React   |         10 |          0 |          2 |         12 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/albums/[album]/page.tsx                             | TypeScript React   |         27 |          2 |          4 |         33 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/artist/[artist]/page.tsx                            | TypeScript React   |         71 |         17 |          4 |         92 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/context/AuthContext.tsx                             | TypeScript React   |         69 |          0 |         14 |         83 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/context/SideBarNavContext.tsx                       | TypeScript React   |         22 |          0 |          4 |         26 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/context/TokenContext.tsx                            | TypeScript React   |         47 |          1 |          8 |         56 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/layout.tsx                                          | TypeScript React   |         51 |         47 |          6 |        104 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/loading.tsx                                         | TypeScript React   |          8 |          0 |          2 |         10 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/page.tsx                                            | TypeScript React   |         22 |          0 |          3 |         25 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/EditModal.tsx             | TypeScript React   |         82 |         21 |          9 |        112 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/EditModalInputs.tsx       | TypeScript React   |         53 |          0 |          5 |         58 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/Tab.tsx                   | TypeScript React   |          9 |          0 |          4 |         13 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/Tabs.tsx                  | TypeScript React   |         43 |          0 |          7 |         50 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/components/UsersCommentsCard.tsx     | TypeScript React   |         26 |          1 |          3 |         30 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/app/profile/[user]/page.tsx                             | TypeScript React   |        148 |          4 |         10 |        162 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/AuthInput.tsx                                | TypeScript React   |         71 |          0 |          2 |         73 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/AuthModal.tsx                                | TypeScript React   |        103 |          0 |          9 |        112 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/FeaturedAlbums.tsx                           | TypeScript React   |         32 |          0 |          3 |         35 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/FeaturedAlbumsCard.tsx                       | TypeScript React   |         53 |          0 |          3 |         56 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/Header.tsx                                   | TypeScript React   |         34 |          8 |          2 |         44 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/RecentlyAddedContainer.tsx                   | TypeScript React   |         47 |          0 |          2 |         49 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/SearchInput.tsx                              | TypeScript React   |         82 |          0 |          6 |         88 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/components/SideNavBar.tsx                               | TypeScript React   |         79 |          0 |          3 |         82 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAlbum.ts                                       | TypeScript         |         23 |          0 |          3 |         26 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAlbumComments.ts                               | TypeScript         |         60 |          1 |          8 |         69 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useArtist.ts                                      | TypeScript         |         95 |          0 |         11 |        106 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useAuth.ts                                        | TypeScript         |         97 |          0 |          8 |        105 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useComment.ts                                     | TypeScript         |         58 |          0 |          5 |         63 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useFeaturedAlbums.ts                              | TypeScript         |         23 |          0 |          4 |         27 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useReviews.ts                                     | TypeScript         |         53 |          0 |          9 |         62 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useSearch.ts                                      | TypeScript         |         63 |          0 |          7 |         70 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/hooks/useUpdateComment.ts                               | TypeScript         |         36 |          0 |          5 |         41 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/next.config.js                                          | JavaScript         |          6 |          1 |          2 |          9 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/package-lock.json                                       | JSON               |      4,843 |          0 |          1 |      4,844 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/package.json                                            | JSON               |         41 |          0 |          1 |         42 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/album/fetchAlbumData.ts                       | TypeScript         |         28 |          0 |          4 |         32 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/me.ts                                    | TypeScript         |         40 |          0 |         10 |         50 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/signin.ts                                | TypeScript         |         64 |          0 |         19 |         83 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/signup.ts                                | TypeScript         |         69 |          0 |         16 |         85 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/auth/updateInfo.ts                            | TypeScript         |         51 |          0 |         10 |         61 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/createComment.ts                     | TypeScript         |         44 |          4 |          9 |         57 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/fetchUserComments.ts                 | TypeScript         |         34 |          0 |          7 |         41 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/comments/updateComment.ts                     | TypeScript         |         30 |          0 |          8 |         38 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/fetchAlbum.ts                                 | TypeScript         |         29 |          0 |          2 |         31 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/fetchRecentlyAddedAlbums.ts                   | TypeScript         |         28 |          0 |          2 |         30 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/pages/api/token/fetchToken.ts                           | TypeScript         |         19 |          0 |          2 |         21 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/postcss.config.js                                       | JavaScript         |          6 |          0 |          1 |          7 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/prisma/schema.prisma                                    | Prisma             |         37 |          2 |         11 |         50 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/public/next.svg                                         | XML                |          1 |          0 |          0 |          1 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/public/vercel.svg                                       | XML                |          1 |          0 |          0 |          1 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/styles/globals.css                                      | CSS                |          9 |          0 |          3 |         12 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/tailwind.config.js                                      | JavaScript         |         17 |          1 |          1 |         19 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/tsconfig.json                                           | JSON with Comments |         26 |          2 |          1 |         29 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/util/days.ts                                            | TypeScript         |         15 |          3 |          3 |         21 |
+| /Users/isaacyanez/Desktop/Everything/album-rater/util/fetchToken.ts                                      | TypeScript         |         30 |          0 |          2 |         32 |
+| Total                                                                                                    |                    |      7,567 |        115 |        335 |      8,017 |
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

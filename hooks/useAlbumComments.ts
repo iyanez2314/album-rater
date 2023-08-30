@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-// TODO: NEED TO COME BACK TO THIS AND FIX THE TYPES
 interface User {
   createdAt: string;
   email: string;
@@ -52,11 +50,9 @@ const useAlbumComments = (albumId: number) => {
           throw new Error("Failed to fetch reviews.");
         }
         const data: AlbumComments = await response.json();
-        console.log(data);
         setAlbumsComments(data.album.reviews);
       } catch (error: any) {
         setError(error.message);
-        console.log(error);
       }
     };
     fetchAllReviews();
