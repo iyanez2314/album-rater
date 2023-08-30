@@ -46,16 +46,12 @@ export default async function handler(
     },
   });
 
-  console.log(user);
-
   if (!user) {
     console.log("here");
     return res.status(400);
   }
 
   const passwordMatch = await bcrypt.compare(password, user.password);
-
-  console.log(passwordMatch);
 
   if (!passwordMatch) {
     return res.status(400).json({ message: "Invalid credentials" });
@@ -68,8 +64,6 @@ export default async function handler(
     .setProtectedHeader({ alg })
     .setExpirationTime("24h")
     .sign(secret);
-
-  console.log(token);
 
   setCookie("jwt", token, { req, res, maxAge: 60 * 60 * 24 });
 

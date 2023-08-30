@@ -14,7 +14,9 @@ const useAuth = () => {
   }) => {
     setAuthState({ data: null, loading: true, error: null });
     try {
-      const resp = await fetch("http://localhost:3000/api/auth/signin", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+      console.log(apiUrl);
+      const resp = await fetch(`${apiUrl}/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,11 +25,9 @@ const useAuth = () => {
       });
       const data = await resp.json();
       if (resp.status === 400) {
-        console.log(data?.message);
         setAuthState({ data: null, loading: false, error: data?.message });
         return;
       }
-      console.log(data?.message);
       setAuthState({ data, loading: false, error: null });
     } catch (error: any) {
       setAuthState({ data: null, loading: false, error: error.message });
