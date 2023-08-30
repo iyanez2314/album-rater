@@ -4,15 +4,19 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-// import Button from "@mui/material/Button";
-// import AuthInput from "./AuthInput";
-// import useAuth from "../hooks/useAuth";
-// import { AuthenticationContext } from "../app/context/AuthContext";
 import { CircularProgress } from "@mui/material";
 import { Edit } from "react-feather";
+import { Comments } from "../page";
+import EditModalInputs from "./EditModalInputs";
+import useUpdateComment from "../../../../hooks/useUpdateComment";
 
+interface State {
+  title: string;
+  body: string;
+  id: number;
+}
 interface Props {
-  login: boolean;
+  comment: Comments;
 }
 
 const style = {
@@ -22,32 +26,33 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  height: 500,
 };
 
-export default function EditModal() {
+export default function EditModal({ comment }: Props) {
+  const { updateComment, loading } = useUpdateComment();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  //   const { signup, logout, singin } = useAuth();
-  //   const { loading, error, data } = useContext(AuthenticationContext);
 
-  const [inputs, setInputs] = useState({
-    email: "",
-    username: "",
-    name: "",
-    password: "",
+  const [inputs, setInputs] = useState<State>({
+    title: comment.title,
+    body: comment.body,
+    id: comment.id,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  //   const renderContent = (signInContent: string, signUpContent: string) => {
-  //     return login ? signInContent : signUpContent;
-  //   };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await updateComment(inputs);
+    handleClose();
+  };
 
   return (
     <div>
@@ -71,8 +76,12 @@ export default function EditModal() {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
-            <h1>here</h1>
+          <Box sx={style} className="p-5 flex justify-center flex-col ">
+            <EditModalInputs
+              handleSubmit={handleSubmit}
+              handleInputChange={handleInputChange}
+              comment={comment}
+            />
             {/* {loading ? (
               <div className=" py-24 px-2 h-[500px] flex justify-center">
                 <CircularProgress />

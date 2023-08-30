@@ -25,6 +25,7 @@ interface Album {
 
 export default function page() {
   const { data } = useContext(AuthenticationContext);
+  const [refreshKey, setRefreshKey] = useState(0);
   const { updateProfile } = useAuth();
   const [inputs, setInputs] = useState({
     originalEmail: data?.email || "",

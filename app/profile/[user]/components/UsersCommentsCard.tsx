@@ -19,7 +19,7 @@ export default function UsersCommentsCard({ comment }: { comment: Comments }) {
             {comment.title}
           </a>
           <div className="w-1/2 flex justify-end">
-            <EditModal />
+            <EditModal comment={comment} />
           </div>
         </div>
         <p className="mt-2 text-gray-600 text-sm">{comment.body}</p>
