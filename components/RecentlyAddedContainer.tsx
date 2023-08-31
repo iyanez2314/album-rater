@@ -12,7 +12,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
   const albumName = recentlyAdded[0]?.name || "";
   const albumId = recentlyAdded[0]?.id || "";
   return (
-    <div className=" flex justify-center px-10 pt-28">
+    <div className=" flex justify-center px-10 mt-10">
       <section className="relative min-w-fit rounded-3xl space-y-2 text-white">
         <div className="min-h-56 flex flex-col md:flex-row justify-between">
           <div className="absolute top-0 w-full h-full opacity-10 p-10">

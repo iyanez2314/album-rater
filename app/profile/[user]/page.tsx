@@ -70,7 +70,7 @@ export default function page() {
   };
 
   return (
-    <div className="flex justify-evenly items-center min-h-screen flex-col mt-40 gap-20 mb-16">
+    <div className="flex justify-evenly items-center min-h-screen flex-col mt-10 gap-20 mb-16">
       <div className="bg-black rounded-lg text-white h-[500px] w-3/4 flex justify-center items-center flex-col space-y-2">
         <div className="mb-3">
           <h1 className="text-lg font-semibold underline">
