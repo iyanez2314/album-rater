@@ -38,42 +38,31 @@ export default function AuthContext({
     error: null,
     data: null,
   });
-
   const fetchUser = async () => {
-    console.log("Fetching user");
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     setAuthState({ data: null, error: null, loading: true });
     try {
       const jwt = getCookie("jwt");
-      console.log("JWT", jwt);
-
       if (!jwt) {
         return setAuthState({ data: null, error: null, loading: false });
       }
-
-      const response = await fetch("http://localhost:3000/api/auth/me", {
+      const response = await fetch(`${apiUrl}/api/auth/me`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
       });
       const data = await response.json();
-
-      console.log("Auth", data);
-
       if (data.error) {
-        console.log(data.error);
         setAuthState({ data: null, error: data.error, loading: false });
       }
       setAuthState({ data, error: null, loading: false });
     } catch (error: any) {
-      console.log(error);
       setAuthState({ data: null, error: error.Errormessage, loading: false });
     }
   };
-
   useEffect(() => {
     fetchUser();
   }, []);
-
   return (
     <AuthenticationContext.Provider value={{ ...authState, setAuthState }}>
       {children}

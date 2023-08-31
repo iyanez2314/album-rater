@@ -4,6 +4,7 @@ import { AuthenticationContext } from "../app/context/AuthContext";
 
 const useAuth = () => {
   const { setAuthState } = useContext(AuthenticationContext);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   const singin = async ({
     email,
@@ -14,8 +15,6 @@ const useAuth = () => {
   }) => {
     setAuthState({ data: null, loading: true, error: null });
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-      console.log(apiUrl);
       const resp = await fetch(`${apiUrl}/api/auth/signin`, {
         method: "POST",
         headers: {
@@ -47,7 +46,7 @@ const useAuth = () => {
   }) => {
     setAuthState({ data: null, loading: true, error: null });
     try {
-      const resp = await fetch("http://localhost:3000/api/auth/signup", {
+      const resp = await fetch(`${apiUrl}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +78,7 @@ const useAuth = () => {
   }) => {
     setAuthState({ data: null, loading: true, error: null });
     try {
-      const resp = await fetch("http://localhost:3000/api/auth/updateInfo", {
+      const resp = await fetch(`${apiUrl}/api/auth/updateInfo`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
