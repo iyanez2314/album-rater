@@ -40,17 +40,7 @@ export default function AlbumData({ albumData }: any) {
                 {artistName}
               </p>
             </Link>
-
-            <div className="mx-2 mb-1 flex font-bold justify-start gap-5">
-              <button className="rounded-md w-12 cursor-none bg-[#1DB954]">
-                R&B
-              </button>
-              <button className="rounded-md w-12 cursor-none bg-[#1DB954]">
-                R&B
-              </button>
-            </div>
           </div>
-
           <div className="mx-1 flex gap-2 mt-1 justify-center items-center w-1/2">
             {albumAverageRating() ? (
               [...Array(albumAverageRating())].map((e, i) => (
