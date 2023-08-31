@@ -26,7 +26,15 @@ export default function FeaturedAlbumsCard({
       <div className="relative h-[325px] w-[300px] mb-9">
         <Image src={albumImage} width={500} height={500} alt="image" />
         <div className="mx-2 my-2 p-2  text-white">
-          <div className="flex justify-between">
+          <div>
+            <h1 className="font-semibold text-md truncate">{albumName}</h1>
+            <Link href={`artist/${artistId}`}>
+              <h2 className="w-full font-light text-sm underline cursor-pointer">
+                {artistName}
+              </h2>
+            </Link>
+          </div>
+          <div className="flex mt-2 justify-between">
             {albumRating <= 1 ? (
               <Star className="text-[#1DB954]" fill="currentColor" size={10} />
             ) : (
@@ -38,15 +46,6 @@ export default function FeaturedAlbumsCard({
                 />
               ))
             )}
-            <h1>Messages</h1>
-          </div>
-          <div>
-            <h1 className="font-semibold text-md truncate">{albumName}</h1>
-            <Link href={`artist/${artistId}`}>
-              <h2 className="w-full font-light text-sm underline cursor-pointer">
-                {artistName}
-              </h2>
-            </Link>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function CommentSection({
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="flex text-white w-full justify-center items-center flex-col">
+    <div className="flex text-white w-full justify-center items-center flex-col sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
       <div className="text-lg mt-8  p-5 flex justify-evenly w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
         <h1 className="font-semibold text-2xl">
           Comments{" "}
@@ -41,7 +41,7 @@ export default function CommentSection({
           <p className="text-lg font-thin">Be the first to review this album</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start w-full sm:w-3/4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start  sm:w-3/4">
           {reviews?.map((review: Review) => {
             return <ReviewCards key={review.id} review={review} />;
           })}
