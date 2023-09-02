@@ -20,8 +20,10 @@ export default function SideNavBar() {
       <div className="relative flex items-center w-full h-full bg-black rounded">
         <div className="relative items-center w-40 flex flex-col h-full rounded space-y-60">
           <div className="mt-5">
-            <h1 className="text-2xl font-bold text-white">
-              <a href="/">Album Rater</a>
+            <h1 className="text-2xl font-bold text-white font-sans">
+              <a href="/" className="">
+                Album Rater
+              </a>
             </h1>
           </div>
           <div className="w-40 h-1/2 flex justify-center">

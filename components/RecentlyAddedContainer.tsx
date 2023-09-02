@@ -39,8 +39,8 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
                   src={images}
                 />
                 <div className="mt-0 w-full text-center">
-                  <h6 className="font-semisbold">{albumName}</h6>
-                  <p className="font-light">{artistName}</p>
+                  <h1 className="text-2xl">{albumName}</h1>
+                  <p className="text-sm underline">{artistName}</p>
                 </div>
               </div>
             </div>
