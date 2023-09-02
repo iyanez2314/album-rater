@@ -92,7 +92,6 @@ const useArtist = (token: string | null, artistId: string) => {
           },
         });
         const data = await response.json();
-        console.log(data);
         setArtistAlbums(data);
       }
     };

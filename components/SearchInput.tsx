@@ -8,7 +8,7 @@ export default function SearchInput() {
   const [isInputFocused, setInputFocus] = useState(false);
   const [isInputFilled, setInputFilled] = useState(false);
   const [inputvalue, setInputValue] = useState("");
-  const { token } = useToken(); // Grabs the token from the context
+  const { token } = useToken();
   const { searchResults } = useSearch(inputvalue, 300, token);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputFilled(e.target.value !== "");
@@ -65,9 +65,9 @@ export default function SearchInput() {
       <div className="mt-2 z-50 absolute bg-black rounded-lg shadow-lg overflow-hidden border-[#1DB954] w-1/2 sm:w-1/5">
         {isActive && (
           <ul className="flex flex-col">
-            {searchResults?.artists?.items?.slice(0, 5).map((result: any) => (
-              <Link href={`/artist/${result.id}`} key={result.id}>
-                <li className="text-white p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full">
+            {searchResults?.albums?.items?.slice(0, 5).map((result: any) => (
+              <Link href={`/albums/${result.id}`} key={result.id}>
+                <li className="text-white z-50 p-2 border-b border-[#1DB954] hover:bg-[#272727] cursor-pointer flex items-center gap-3 w-full">
                   <img
                     src={result?.images?.[0]?.url}
                     alt={result.name}

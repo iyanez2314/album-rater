@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 
-interface SpotifySearchArtistResponse {
-  artists: {
+interface SpotifySearchAlbumResponse {
+  albums: {
     href: string;
-    items: SpotifyArtistSearchItem[];
+    items: SpotifyAlbumSearchItem[];
     limit: number;
     next: string;
     offset: number;
@@ -13,31 +13,36 @@ interface SpotifySearchArtistResponse {
   };
 }
 
-interface SpotifyArtistSearchItem {
+// Individual album object
+interface SpotifyAlbumSearchItem {
+  album_type: string;
+  artists: Array<{
+    // Define fields of individual artists here if needed.
+    // For now, using any as placeholder.
+    [key: string]: any;
+  }>;
+  available_markets: string[];
   external_urls: {
     spotify: string;
   };
-  followers: {
-    href: string | null;
-    total: number;
-  };
-  genres: string[];
   href: string;
   id: string;
-  images: {
+  images: Array<{
     height: number;
     url: string;
     width: number;
-  }[];
+  }>;
   name: string;
-  popularity: number;
+  release_date: string;
+  release_date_precision: string;
+  total_tracks: number;
   type: string;
   uri: string;
 }
 
 const useSearch = (search: string, delay: number, token: string | null) => {
   const [searchResults, setSearchResults] =
-    useState<SpotifySearchArtistResponse | null>(null);
+    useState<SpotifySearchAlbumResponse | null>(null);
   if (!token) {
     throw new Error("No token provided");
   }
@@ -49,7 +54,7 @@ const useSearch = (search: string, delay: number, token: string | null) => {
     }
     const timeout = setTimeout(async () => {
       const resp = await fetch(
-        `https://api.spotify.com/v1/search?q=${search}&type=artist`,
+        `https://api.spotify.com/v1/search?q=${search}&type=album`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
