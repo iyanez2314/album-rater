@@ -10,6 +10,7 @@
 - Material UI
 - Postgres
 - Prisma
+- Tailwind CSS
 
 ## API Used
 
