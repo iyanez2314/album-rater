@@ -10,6 +10,8 @@ import { Comments } from "../page";
 import EditModalInputs from "./EditModalInputs";
 import useUpdateComment from "../../../../hooks/useUpdateComment";
 import useDeleteComment from "../../../../hooks/useDeleteComment";
+import { AuthenticationContext } from "../../../context/AuthContext";
+import useFetchUserComments from "../../../../hooks/useFetchUserComments";
 
 interface State {
   title: string;
@@ -33,6 +35,8 @@ const style = {
 
 export default function EditModal({ comment }: Props) {
   const { updateComment, loading } = useUpdateComment();
+  const { data } = useContext(AuthenticationContext);
+  const { refreshData } = useFetchUserComments(data);
   const { deleteComment } = useDeleteComment();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -50,10 +54,12 @@ export default function EditModal({ comment }: Props) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await updateComment(inputs);
+    refreshData();
     handleClose();
   };
   const handleDelete = async (commentId: number) => {
     await deleteComment(commentId);
+    refreshData();
     handleClose();
   };
   return (

@@ -11,7 +11,6 @@ export default function UsersCommentsCard({ comment }: { comment: Comments }) {
           className="w-full h-36 object-cover"
         />
       </Link>
-      {/* <div className="w-full h-36 bg-purple-300 object-cover"></div> */}
       <div className="p-4">
         <div className="flex items-center justify-between">
           <a href="#" className="text-lg font-semibold text-black">
@@ -21,7 +20,7 @@ export default function UsersCommentsCard({ comment }: { comment: Comments }) {
             <EditModal comment={comment} />
           </div>
         </div>
-        <p className="mt-2 text-gray-600 text-sm">{comment.body}</p>
+        <p className="mt-2 text-gray-600 text-sm truncate">{comment.body}</p>
       </div>
     </div>
   );

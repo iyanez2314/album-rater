@@ -5,6 +5,7 @@ import { AuthenticationContext } from "../../context/AuthContext";
 import Tabs from "./components/Tabs";
 import Tab from "./components/Tab";
 import UsersCommentsCard from "./components/UsersCommentsCard";
+import useFetchUserComments from "../../../hooks/useFetchUserComments";
 
 export interface Comments {
   id: number;
@@ -25,7 +26,8 @@ interface Album {
 
 export default function page() {
   const { data } = useContext(AuthenticationContext);
-  const [refreshKey, setRefreshKey] = useState(0);
+  const { usersComments, error, loading, refreshData } =
+    useFetchUserComments(data);
   const { updateProfile } = useAuth();
   const [inputs, setInputs] = useState({
     originalEmail: data?.email || "",
@@ -33,31 +35,6 @@ export default function page() {
     email: "",
     name: "",
   });
-  const [usersComments, setUsersComments] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const fetchUsersComments = async () => {
-    try {
-      const options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: data?.email }),
-      };
-      setLoading(true);
-      const res = await fetch("/api/comments/fetchUserComments", options);
-      const resData = await res.json();
-      setUsersComments(resData.userComments);
-      setLoading(false);
-    } catch (error: any) {
-      setError(error);
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsersComments();
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -68,6 +45,10 @@ export default function page() {
     e.preventDefault();
     updateProfile(inputs);
   };
+
+  useEffect(() => {
+    refreshData();
+  }, []);
 
   return (
     <div className="flex justify-evenly items-center min-h-screen flex-col mt-10 gap-20 mb-16">
@@ -143,11 +124,7 @@ export default function page() {
                 ) : (
                   usersComments.map((comment: Comments) => {
                     return (
-                      <UsersCommentsCard comment={comment} />
-                      // <div className="flex flex-col justify-center items-center">
-                      //   <p>{comment.title}</p>
-                      //   <p>{comment.body}</p>
-                      // </div>
+                      <UsersCommentsCard key={comment.id} comment={comment} />
                     );
                   })
                 )}
