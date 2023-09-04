@@ -5,7 +5,13 @@ export default function AlbumCover({ albumCover }: { albumCover: any }) {
   const AlbumCover = albumCover?.images?.[0]?.url || "";
   return (
     <div className=" mt-10 flex items-center justify-center w-full p-7">
-      <Image src={AlbumCover} width={700} height={700} alt="image" />
+      <Image
+        src={AlbumCover}
+        width={700}
+        height={700}
+        alt="image"
+        className="rounded"
+      />
     </div>
   );
 }

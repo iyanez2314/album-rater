@@ -6,6 +6,7 @@ import { useToken } from "../../context/TokenContext";
 import AlbumCover from "./components/AlbumCover";
 import AlbumData from "./components/AlbumData";
 import CommentSection from "./components/CommentSection";
+import Loading from "./loading";
 
 interface Props {
   params: {
@@ -16,11 +17,8 @@ interface Props {
 export default function page({ params }: Props) {
   const { token } = useToken();
   const { album } = useAlbum(token, params.album);
-
-  console.log(album);
-
   if (!token || !album) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <div className="flex flex-col justify-center items-center">

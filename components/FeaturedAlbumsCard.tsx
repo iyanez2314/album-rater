@@ -24,7 +24,13 @@ export default function FeaturedAlbumsCard({
   return (
     <Link href={`/albums/${id}`}>
       <div className="relative h-[325px] w-[300px] mb-9">
-        <Image src={albumImage} width={500} height={500} alt="image" />
+        <Image
+          src={albumImage}
+          width={500}
+          height={500}
+          alt="image"
+          className="rounded"
+        />
         <div className="mx-2 my-2 p-2  text-white">
           <div>
             <h1 className="font-semibold text-md truncate">{albumName}</h1>

@@ -20,7 +20,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
               <Image
                 alt={albumName}
                 fill
-                className="object-cover object-center mx-auto"
+                className="object-cover object-center mx-auto rounded"
                 src={images}
               />
             </div>
@@ -35,7 +35,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
                   alt={albumName}
                   width={175}
                   height={175}
-                  className="mx-auto object-contain object-center"
+                  className="mx-auto object-contain object-center rounded"
                   src={images}
                 />
                 <div className="mt-0 w-full text-center">

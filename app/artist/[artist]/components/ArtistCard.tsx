@@ -21,9 +21,7 @@ export default function ArtistCard({
         <img src={artistImage || ""} alt={artistName} className="rounded" />
       </div>
       <h1 className="text-2xl">{artistName}</h1>
-      <span className="text-sm font-light">
-        Genres: {artistGenres?.join(", ")}
-      </span>
+      <p className="text-sm font-light">Genres: {artistGenres?.join(", ")}</p>
       <p className="text-sm font-light">Popularity: {artistPopularity}</p>
       <p className="text-sm font-light">Followers: {artistFollowers}</p>
     </div>
