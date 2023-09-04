@@ -62,7 +62,6 @@ const useSearch = (search: string, delay: number, token: string | null) => {
         }
       );
       const data = await resp.json();
-      console.log(data);
       setSearchResults(data);
     }, delay);
     return () => clearTimeout(timeout);

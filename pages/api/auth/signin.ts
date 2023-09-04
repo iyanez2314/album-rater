@@ -47,7 +47,6 @@ export default async function handler(
   });
 
   if (!user) {
-    console.log("here");
     return res.status(400);
   }
 

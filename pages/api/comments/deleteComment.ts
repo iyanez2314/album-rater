@@ -13,8 +13,6 @@ export default async function handler(
 
   const { reviewId } = req.body;
 
-  console.log(reviewId);
-
   const review = await prisma.review.findUnique({
     where: {
       id: reviewId,

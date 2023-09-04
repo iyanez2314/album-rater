@@ -25,7 +25,6 @@ export default async function handler(
 
     return res.status(200).json({ album });
   } catch (error) {
-    console.log("error", error);
     return res.status(500).json({ message: error });
   }
 }

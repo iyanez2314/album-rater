@@ -13,8 +13,6 @@ export default async function handler(
 
   const { albumTitle, albumId, userId, title, rating, comment, albumCover } =
     req.body;
-
-  console.log("req.body", req.body);
   const UserId = parseInt(userId);
   const Rating = parseInt(rating);
 
@@ -23,7 +21,6 @@ export default async function handler(
     let album = await prisma.album.findUnique({
       where: { albumId: albumId },
     });
-    console.log("does album exist album", album);
 
     // If the album doesn't exist, create it
     if (!album) {
@@ -49,7 +46,6 @@ export default async function handler(
 
     return res.status(200).json({ message: "Comment created" });
   } catch (error) {
-    console.log("error", error);
     // Handle any errors that occurred while interacting with the database
     return res.status(500).json({ message: "An error occurred" });
   }
