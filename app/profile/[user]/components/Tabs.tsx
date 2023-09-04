@@ -26,6 +26,7 @@ const Tabs: React.FC<{ children: ReactElement<TabProps>[] }> = ({
 
           return (
             <button
+              key={label}
               className={`p-2 rounded font-thin w-full ${
                 activeTab === label
                   ? "text-white bg-[#1DB954] underline"

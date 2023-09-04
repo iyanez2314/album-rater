@@ -11,6 +11,7 @@ export default async function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
   const { albumId } = req.body;
+  console.log(albumId);
   try {
     const album = await prisma.album.findUnique({
       where: { albumId: albumId as string },
@@ -22,6 +23,8 @@ export default async function handler(
         },
       },
     });
+
+    console.log(album);
 
     return res.status(200).json({ album });
   } catch (error) {
