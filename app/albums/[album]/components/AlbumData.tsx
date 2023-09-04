@@ -13,6 +13,8 @@ export default function AlbumData({ albumData }: any) {
   const artistId = albumData?.artists?.[0].id || "";
   const { albumsComments, error } = useAlbumComments(albumData?.id || "");
 
+  console.log(albumsComments);
+
   const albumAverageRating = () => {
     let count = 0;
     for (let i = 0; i < albumsComments?.length; i++) {

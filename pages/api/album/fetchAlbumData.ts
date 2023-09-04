@@ -23,11 +23,13 @@ export default async function handler(
         },
       },
     });
-
+    if (!album) {
+      return res.status(404).json({ message: "Album not found" });
+    }
     console.log(album);
-
     return res.status(200).json({ album });
   } catch (error) {
+    console.error("backend error: ", error);
     return res.status(500).json({ message: error });
   }
 }

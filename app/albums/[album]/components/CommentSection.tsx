@@ -14,9 +14,13 @@ export default function CommentSection({
 }) {
   const [refreshKey, setRefreshKey] = useState(0);
   const { reviews, error } = useReviews(params.album, refreshKey);
+
+  console.log(reviews);
+
   const handleRefreshKey = () => {
     setRefreshKey((prev) => prev + 1);
   };
+
   if (error) return <div>{error}</div>;
 
   return (

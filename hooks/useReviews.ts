@@ -47,8 +47,10 @@ const useReviews = (params: params, refreshKey: number) => {
           throw new Error("Failed to fetch reviews.");
         }
         const data = await response.json();
+        console.log(data);
         setReviews(data.album?.reviews || []);
       } catch (error: any) {
+        console.error(error);
         setError(error.message);
       }
     };
