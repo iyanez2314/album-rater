@@ -1,5 +1,4 @@
 import React from "react";
-import albumCover from "../public/brett-jordan-x3wDxZJx9qs-unsplash.jpg";
 import Link from "next/link";
 import Image from "next/image";
 import { Star } from "react-feather";

@@ -4,6 +4,7 @@ import useReviews from "../../../../hooks/useReviews";
 import AlbumReviewModal from "./AlbumReviewModal";
 import ReviewCards from "./ReviewCards";
 import { Review } from "../../../../hooks/useReviews";
+import { CircularProgress } from "@mui/material";
 
 export default function CommentSection({
   albumData,
@@ -14,11 +15,9 @@ export default function CommentSection({
 }) {
   const [refreshKey, setRefreshKey] = useState(0);
   const { reviews, error } = useReviews(params.album, refreshKey);
-
   const handleRefreshKey = () => {
     setRefreshKey((prev) => prev + 1);
   };
-
   return (
     <div className="flex text-white w-full justify-center items-center flex-col sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
       <div className="text-lg mt-8  p-5 flex justify-evenly w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
@@ -52,7 +51,6 @@ export default function CommentSection({
           })}
         </div>
       )}
-
       <button className="mt-6 mb-6 bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out">
         Read More
       </button>

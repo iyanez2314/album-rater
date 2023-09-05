@@ -49,6 +49,8 @@ export default async function handler(
 
   setCookie("jwt", token, { req, res, httpOnly: true, maxAge: 60 * 60 * 24 });
 
+  prisma.$disconnect();
+
   return res.status(200).json({
     username: updatedUser.username,
     name: updatedUser.name,

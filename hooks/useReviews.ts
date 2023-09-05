@@ -47,7 +47,7 @@ const useReviews = (params: params, refreshKey: number) => {
           throw new Error("Album data not avaliable in data base");
         }
         const data = await response.json();
-        setReviews(data.album?.reviews || null);
+        setReviews(data?.album?.reviews || null);
       } catch (error: any) {
         setError(error.message);
       }

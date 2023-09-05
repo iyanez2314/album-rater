@@ -20,13 +20,16 @@ export default async function handler(
         },
       },
     });
+
+    console.log(album);
+
     if (!album) {
       return res
         .status(404)
         .json({ message: "Album data not avaliable in data base" });
     }
     return res.status(200).json({ album });
-  } catch (error) {
-    return res.status(500).json({ message: error });
+  } catch (error: any) {
+    return res.status(500).json({ message: error.message });
   }
 }

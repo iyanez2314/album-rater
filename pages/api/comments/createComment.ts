@@ -42,6 +42,8 @@ export default async function handler(
       },
     });
 
+    prisma.$disconnect();
+
     return res.status(200).json({ message: "Comment created" });
   } catch (error) {
     // Handle any errors that occurred while interacting with the database
