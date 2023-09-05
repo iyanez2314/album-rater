@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 import jwt from "jsonwebtoken";
 import { prisma } from "../../../util/prisma";
 
@@ -34,6 +33,8 @@ export default async function handler(
   if (!user) {
     return res.status(401).json({ errorMessage: "Not Authorized" });
   }
+
+  prisma.$disconnect();
 
   return res.status(200).json({
     id: user.id,

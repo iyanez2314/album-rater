@@ -45,7 +45,7 @@ export default async function handler(
   });
 
   if (!user) {
-    return res.status(400);
+    return res.status(400).json({ message: "Invalid credentials" });
   }
 
   const passwordMatch = await bcrypt.compare(password, user.password);
@@ -63,6 +63,8 @@ export default async function handler(
     .sign(secret);
 
   setCookie("jwt", token, { req, res, maxAge: 60 * 60 * 24 });
+
+  prisma.$disconnect();
 
   return res.status(200).json({
     name: user.name,

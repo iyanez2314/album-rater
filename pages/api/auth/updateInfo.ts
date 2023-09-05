@@ -1,6 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import validator from "validator";
-import bcrypt from "bcrypt";
 import * as jose from "jose";
 import { setCookie } from "cookies-next";
 import { prisma } from "../../../util/prisma";

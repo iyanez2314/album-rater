@@ -23,7 +23,6 @@ const useAuth = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await resp.json();
-      console.log(data);
       if (resp.status === 400) {
         setAuthState({ data: null, loading: false, error: data?.message });
         return;
