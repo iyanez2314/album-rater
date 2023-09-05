@@ -12,15 +12,12 @@ export default function AlbumData({ albumData }: any) {
   const artistName = albumData?.artists?.[0].name || "";
   const artistId = albumData?.artists?.[0].id || "";
   const { albumsComments, error } = useAlbumComments(albumData?.id || "");
-
-  console.log(albumsComments);
-
   const albumAverageRating = () => {
     let count = 0;
+    if (albumsComments?.length === 0) return 0;
     for (let i = 0; i < albumsComments?.length; i++) {
       count += (albumsComments[i] as AlbumComment).rating || 0;
     }
-
     return Math.round(count / (albumsComments?.length || 1));
   };
 

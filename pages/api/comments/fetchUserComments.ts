@@ -29,10 +29,8 @@ export default async function handler(
       },
     },
   });
-
   if (!user) {
     return res.status(200).json({ message: "User not found" });
   }
-
   return res.status(200).json({ userComments: user.reviews });
 }

@@ -31,7 +31,7 @@ interface AlbumComments {
 }
 
 const useAlbumComments = (albumId: number) => {
-  const [albumsComments, setAlbumsComments] = useState<Review[]>([]);
+  const [albumsComments, setAlbumsComments] = useState<Review[] | []>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {

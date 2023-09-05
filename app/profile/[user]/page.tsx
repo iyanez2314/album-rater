@@ -6,6 +6,7 @@ import Tabs from "./components/Tabs";
 import Tab from "./components/Tab";
 import UsersCommentsCard from "./components/UsersCommentsCard";
 import useFetchUserComments from "../../../hooks/useFetchUserComments";
+import Loading from "./loading";
 
 export interface Comments {
   id: number;
@@ -48,7 +49,11 @@ export default function page() {
 
   useEffect(() => {
     refreshData();
-  }, []);
+  }, [data]);
+
+  if (!data) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex justify-evenly items-center min-h-screen flex-col mt-10 gap-20 mb-16">
@@ -117,7 +122,7 @@ export default function page() {
                 <h1>Comments Made On Albums</h1>
               </div>
               <div className="grid grid-cols-1 p-10 my-5 mx-3 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {loading ? (
+                {!data ? (
                   <div className="flex justify-center items-center font-thin">
                     <p>Loading...</p>
                   </div>
