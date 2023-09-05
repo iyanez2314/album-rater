@@ -44,13 +44,11 @@ const useReviews = (params: params, refreshKey: number) => {
           }),
         });
         if (!response.ok) {
-          throw new Error("Failed to fetch reviews.");
+          throw new Error("Album data not avaliable in data base");
         }
         const data = await response.json();
-        console.log(data);
-        setReviews(data.album?.reviews || []);
+        setReviews(data.album?.reviews || null);
       } catch (error: any) {
-        console.error(error);
         setError(error.message);
       }
     };

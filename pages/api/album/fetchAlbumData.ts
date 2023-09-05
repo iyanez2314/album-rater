@@ -1,7 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "../../../util/prisma";
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,7 +9,6 @@ export default async function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
   const { albumId } = req.body;
-  console.log(albumId);
   try {
     const album = await prisma.album.findUnique({
       where: { albumId: albumId as string },
@@ -24,12 +21,12 @@ export default async function handler(
       },
     });
     if (!album) {
-      return res.status(404).json({ message: "Album not found" });
+      return res
+        .status(404)
+        .json({ message: "Album data not avaliable in data base" });
     }
-    console.log(album);
     return res.status(200).json({ album });
   } catch (error) {
-    console.error("backend error: ", error);
     return res.status(500).json({ message: error });
   }
 }

@@ -15,13 +15,9 @@ export default function CommentSection({
   const [refreshKey, setRefreshKey] = useState(0);
   const { reviews, error } = useReviews(params.album, refreshKey);
 
-  console.log(reviews);
-
   const handleRefreshKey = () => {
     setRefreshKey((prev) => prev + 1);
   };
-
-  if (error) return <div>{error}</div>;
 
   return (
     <div className="flex text-white w-full justify-center items-center flex-col sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
@@ -39,7 +35,12 @@ export default function CommentSection({
           albumName={albumData?.name}
         />
       </div>
-      {reviews?.length === 0 ? (
+      {reviews === null ? (
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-2xl font-semibold">No Reviews Yet</h1>
+          <p className="text-lg font-thin">Be the first to review this album</p>
+        </div>
+      ) : reviews.length === 0 ? (
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-semibold">No Reviews Yet</h1>
           <p className="text-lg font-thin">Be the first to review this album</p>

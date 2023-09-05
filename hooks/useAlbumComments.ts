@@ -50,8 +50,10 @@ const useAlbumComments = (albumId: number) => {
           throw new Error("Failed to fetch reviews.");
         }
         const data: AlbumComments = await response.json();
+        console.log(data);
         setAlbumsComments(data.album.reviews);
       } catch (error: any) {
+        console.error(error);
         setError(error.message);
       }
     };
