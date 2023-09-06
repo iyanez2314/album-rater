@@ -7,6 +7,7 @@ import Tab from "./components/Tab";
 import UsersCommentsCard from "./components/UsersCommentsCard";
 import useFetchUserComments from "../../../hooks/useFetchUserComments";
 import Loading from "./loading";
+import { useRouter } from "next/navigation";
 
 export interface Comments {
   id: number;
@@ -26,10 +27,11 @@ interface Album {
 }
 
 export default function page() {
+  const router = useRouter();
   const { data } = useContext(AuthenticationContext);
   const { usersComments, error, loading, refreshData } =
     useFetchUserComments(data);
-  const { updateProfile } = useAuth();
+  const { updateProfile } = useAuth(router);
   const [inputs, setInputs] = useState({
     originalEmail: data?.email || "",
     username: "",

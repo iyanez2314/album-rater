@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { Search, Settings, LogOut, Globe } from "react-feather";
 import useAuth from "../../hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 export default function AuthHeader() {
-  const { logout } = useAuth();
+  const router = useRouter();
+  const { logout } = useAuth(router);
   return (
     <div className="flex justify-between items-center gap-4 mt-5 w-full">
       <div className="w-1/2 mx-5">
@@ -26,7 +28,7 @@ export default function AuthHeader() {
           <span>Profile</span>
         </button>
         <button
-          className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center gap-2 text-white"
+          className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center gap-2 text-white hover:cursor-pointer"
           onClick={logout}
         >
           <LogOut size={20} />

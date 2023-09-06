@@ -5,11 +5,13 @@ import { AuthenticationContext } from "../app/context/AuthContext";
 import useAuth from "../hooks/useAuth";
 import AuthModal from "./AuthModal";
 import SearchInput from "./SearchInput";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { data, loading } = useContext(AuthenticationContext);
+  const router = useRouter();
   console.log(data);
-  const { logout } = useAuth();
+  const { logout } = useAuth(router);
   return (
     <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">
       <nav className="text-white flex items-center justify-evenly w-full">

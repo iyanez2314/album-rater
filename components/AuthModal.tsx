@@ -9,6 +9,7 @@ import AuthInput from "./AuthInput";
 import useAuth from "../hooks/useAuth";
 import { AuthenticationContext } from "../app/context/AuthContext";
 import { CircularProgress } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 interface Props {
   login: boolean;
@@ -25,10 +26,11 @@ const style = {
 };
 
 export default function AuthModal({ login }: Props) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { signup, logout, singin } = useAuth();
+  const { signup, logout, singin } = useAuth(router);
   const { loading, error, data } = useContext(AuthenticationContext);
 
   const [inputs, setInputs] = useState({

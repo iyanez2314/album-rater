@@ -2,7 +2,7 @@ import { deleteCookie } from "cookies-next";
 import { useContext } from "react";
 import { AuthenticationContext } from "../app/context/AuthContext";
 
-const useAuth = () => {
+const useAuth = (router: any) => {
   const { setAuthState } = useContext(AuthenticationContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
@@ -63,6 +63,7 @@ const useAuth = () => {
   const logout = async () => {
     deleteCookie("jwt");
     setAuthState({ data: null, loading: false, error: null });
+    router.push("/");
   };
 
   const updateProfile = async ({

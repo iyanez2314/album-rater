@@ -6,10 +6,12 @@ import { AuthenticationContext } from "../app/context/AuthContext";
 import { useSideBarNav } from "../app/context/SideBarNavContext";
 import useAuth from "../hooks/useAuth";
 import AuthModal from "./AuthModal";
+import { useRouter } from "next/navigation";
 
 export default function SideNavBar() {
   const { data, error } = useContext(AuthenticationContext);
-  const { logout } = useAuth();
+  const router = useRouter();
+  const { logout } = useAuth(router);
   const { toggleSlider, isOpen } = useSideBarNav();
   const [active, setActive] = useState("");
   const handleActive = (currentPageActive: string) => {
