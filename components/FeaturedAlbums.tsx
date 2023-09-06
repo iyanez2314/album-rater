@@ -8,13 +8,13 @@ interface Props {
 
 export default function FeaturedAlbums({ recentlyAdded }: Props) {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex mt-20 justify-center items-center flex-col bg-white">
       <div className="flex justify-center flex-col items-center">
-        <div className="text-white font-semibold text-3xl mt-10">
+        <div className="text-[#84A59D] font-semibold text-4xl mt-10">
           <h1>Featured Albums</h1>
         </div>
       </div>
-      <div className="p-20 items-center pl-0 pr-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 ">
+      <div className="p-10 items-center pl-0 pr-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 ">
         {recentlyAdded.map((album: any) => {
           return (
             <FeaturedAlbumsCard

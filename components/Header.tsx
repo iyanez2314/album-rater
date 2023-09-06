@@ -8,6 +8,7 @@ import SearchInput from "./SearchInput";
 
 export default function Header() {
   const { data, loading } = useContext(AuthenticationContext);
+  console.log(data);
   const { logout } = useAuth();
   return (
     <header className="w-full sm:w-1/2 flex justify-between items-center py-4 px-10">

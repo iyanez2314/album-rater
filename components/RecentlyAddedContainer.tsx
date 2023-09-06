@@ -14,7 +14,7 @@ export default function RecentlyAddedContainer({ recentlyAdded }: Props) {
   return (
     <div className=" flex justify-center px-10 mt-10 z-[-10]">
       <Link href={`/albums/${albumId}`}>
-        <section className="relative min-w-fit rounded-3xl space-y-2 text-white">
+        <section className="relative min-w-fit rounded-3xl space-y-2 text-[#84A59D]">
           <div className="min-h-56 flex flex-col md:flex-row justify-between">
             <div className="absolute top-0 w-full h-full opacity-10 p-10">
               <Image

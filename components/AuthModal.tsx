@@ -21,8 +21,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
 };
 
@@ -59,12 +57,7 @@ export default function AuthModal({ login }: Props) {
 
   return (
     <div>
-      <button
-        className={`text-white text-center ${
-          login ? "" : "bg-[#1DB954] p-2 rounded"
-        }`}
-        onClick={handleOpen}
-      >
+      <button className={`text-white text-center`} onClick={handleOpen}>
         {login ? "Login" : "Signup"}
       </button>
       <Modal
@@ -94,7 +87,6 @@ export default function AuthModal({ login }: Props) {
                 <p className="text-2xl">
                   {renderContent("Sign In", "Create Account")}
                 </p>
-                <p>{data ? `Welcome ${data?.username}` : "Please login"}</p>
                 <AuthInput
                   handleSubmit={handleSubmit}
                   login={login}

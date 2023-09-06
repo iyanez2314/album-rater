@@ -5,7 +5,7 @@ import { useToken } from "../app/context/TokenContext";
 import useSearch from "../hooks/useSearch";
 
 export default function SearchInput() {
-  const [isInputFocused, setInputFocus] = useState(false);
+  const [isInputFocused, setInputFocus] = useState(true);
   const [isInputFilled, setInputFilled] = useState(false);
   const [inputvalue, setInputValue] = useState("");
   const { token } = useToken();
@@ -34,7 +34,7 @@ export default function SearchInput() {
           className={`w-10 text-black h-10 rounded-full outline-none p-2 transition-all duration-500 ease-in-out 
           ${
             isActive
-              ? "bg-white border-[#1DB954] w-72 pl-14"
+              ? "bg-white border-[#84A59D] w-72 pl-14"
               : "bg-transparent cursor-pointer"
           }`}
           placeholder={isActive ? "Search For Artist...." : ""}
@@ -45,7 +45,7 @@ export default function SearchInput() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className={`absolute h-11 w-11 rounded-full fill-current text-[#1DB954] left-0 
+          className={`absolute h-11 w-11 rounded-full fill-current text-[#84A59D] left-0 
           ${
             isActive
               ? "bg-transparent border-none"

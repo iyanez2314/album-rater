@@ -8,7 +8,6 @@ interface Props {
   artistName: string;
   albumImage: string;
   id: string;
-  albumRating: number;
   artistId?: string;
 }
 
@@ -16,7 +15,6 @@ export default function FeaturedAlbumsCard({
   albumName,
   artistName,
   albumImage,
-  albumRating,
   artistId,
   id,
 }: Props) {
@@ -30,7 +28,7 @@ export default function FeaturedAlbumsCard({
           alt="image"
           className="rounded"
         />
-        <div className="mx-2 my-2 p-2  text-white">
+        <div className="mx-2 my-2 p-2  text-[#84A59D]">
           <div>
             <h1 className="font-semibold text-md truncate">{albumName}</h1>
             <Link href={`artist/${artistId}`}>
@@ -38,19 +36,6 @@ export default function FeaturedAlbumsCard({
                 {artistName}
               </h2>
             </Link>
-          </div>
-          <div className="flex mt-2 justify-between">
-            {albumRating <= 1 ? (
-              <Star className="text-[#1DB954]" fill="currentColor" size={10} />
-            ) : (
-              [...Array(albumRating)].map((_, i) => (
-                <Star
-                  className="text-[#1DB954]"
-                  fill="currentColor"
-                  size={10}
-                />
-              ))
-            )}
           </div>
         </div>
       </div>
