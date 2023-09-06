@@ -47,7 +47,7 @@ function ContentComponent({ children }: { children: React.ReactNode }) {
   return (
     <main className=" mx-auto flex-grow overflow-y-auto">
       {/* <div className="flex h-screen w-screen bg-red-500"> */}
-      <div className="text-white top-6 left-2 fixed">
+      {/* <div className="text-white top-6 left-2 fixed">
         <Menu onClick={toggleSlider} />
       </div>
       <div
@@ -56,17 +56,14 @@ function ContentComponent({ children }: { children: React.ReactNode }) {
         } transition-transform duration-300 z-50`}
       >
         <SideNavBar />
-      </div>
+      </div> */}
 
       <div className="flex flex-col w-full">
-        <div className="w-full flex justify-center">
+        {/* <div className="w-full flex justify-center">
           <Header />
-        </div>
-        {/* <main className="max-w-7xl mx-auto flex-grow overflow-y-auto"> */}
+        </div> */}
         {children}
-        {/* </main> */}
       </div>
-      {/* </div> */}
     </main>
   );
 }
