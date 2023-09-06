@@ -42,7 +42,6 @@ export default function page({ params }: { params: any }) {
       <div className="grid grid-cols-1 p-10 my-5 mx-3 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {artistAlbums?.items.slice(1).map((album: any) => (
           <FeaturedAlbumsCard
-            albumRating={1}
             key={album.id}
             id={album.id}
             albumName={album.name}
