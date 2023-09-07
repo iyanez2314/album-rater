@@ -52,7 +52,6 @@ export default function AuthContext({
         },
       });
       const data = await response.json();
-      console.log(data);
       if (data.error) {
         setAuthState({ data: null, error: data.error, loading: false });
       }
