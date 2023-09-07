@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function AuthHeader() {
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false);
   const { logout } = useAuth(router);
 
   const toggleMenu = () => {
@@ -39,7 +39,7 @@ export default function AuthHeader() {
         </button>
         <button className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center gap-2 text-white">
           <Settings size={20} />
-          <span>Profile</span>
+          <Link href={"/profile/user"}>Profile</Link>
         </button>
         <button
           className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center gap-2 text-white hover:cursor-pointer"

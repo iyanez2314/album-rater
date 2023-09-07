@@ -14,7 +14,7 @@ function HomeJumbotronContent() {
     >
       <div className="h-full flex flex-col sm:flex-row md:flex-row xl:flex-row lg:flex-row w-full sm:w-1/2 md:w-1/2  bg-white">
         <div className="w-full h-full p-4 flex flex-col gap-10">
-          <div className="flex justify-between mx-4">
+          <div className="flex justify-between mx-4 ">
             <h1 className="text-2xl">Album Rater</h1>
             {data ? null : (
               <button className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center text-white">
@@ -24,14 +24,14 @@ function HomeJumbotronContent() {
           </div>
           {/* Bottom Section */}
           <div className="flex flex-col justify-center items-center w-full h-full gap-7">
-            <div className="w-1/2">
+            <div className="w-full sm:w-1/2">
               <h3 className="text-6xl font-semibold text-black text-left">
                 {data
                   ? `Welcome Back ${data.username}`
                   : "Welcome To Album Rater"}
               </h3>
             </div>
-            <div className="w-1/2">
+            <div className="w-full sm:w-1/2">
               <p className="font-thin text-sm text-left">
                 Album Rater is a web application that allows you to rate your
                 favorite albums with other music lovers.
