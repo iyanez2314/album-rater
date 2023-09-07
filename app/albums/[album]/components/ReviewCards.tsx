@@ -13,19 +13,19 @@ export default function ReviewCards({ review }: { review: Review }) {
   const reviewRating = review.rating;
 
   return (
-    <div className=" mt-5 w-full min-w-[350px] bg-[#353535] rounded-[20px] flex flex-col items-center justify-start backdrop-blur-[10px] transition-all duration-500 ease-in-out transform hover:scale-105 hover:cursor-pointer py-[15px]">
+    <div className=" mt-5 w-full min-w-[350px] bg-white rounded-[20px] flex flex-col items-center justify-start backdrop-blur-[10px] transition-all duration-500 ease-in-out transform hover:scale-105 hover:cursor-pointer py-[15px]">
       <div className="flex items-start w-full max-w-[350px]">
         <div className="w-[70px] h-[70px] ml-[10px] rounded-[10px] bg-gradient-to-r from-[#d7cfcf] to-[#9198e5] transition-all duration-500 ease-in-out hover:from-[#9198e5] hover:to-[#712020]"></div>
         <div className="mb-4 w-[calc(100%-110px)] ml-[10px] text-white font-poppins">
           <div className="flex items-center justify-between">
-            <div>
+            <div className="text-[#84A59D]">
               <p className="text-[18px] font-bold">{review.title}</p>
               <div className="flex gap-2 items-center">
                 <p className="text-[12px] font-light">{review.user.username}</p>
                 <>
                   {[...Array(reviewRating)].map((_, i) => (
                     <Star
-                      className="text-[#1DB954]"
+                      className="text-[#F5CAC3]"
                       fill="currentColor"
                       size={10}
                     />
@@ -36,7 +36,7 @@ export default function ReviewCards({ review }: { review: Review }) {
             <span className="text-[12px]">{days}</span>
           </div>
           <p
-            className={`text-[14px] font-light ${
+            className={`text-[14px] text-[#84A59D] font-light ${
               isTruncated ? "truncate" : ""
             }`}
           >
@@ -51,9 +51,12 @@ export default function ReviewCards({ review }: { review: Review }) {
         {isTruncated ? "Read More" : "Read Less"}
         <span>
           {isTruncated ? (
-            <ArrowDown size={20} className="text-white" />
+            <ArrowDown size={20} className="text-[#84A59D]" />
           ) : (
-            <ArrowDown size={20} className="text-white transform rotate-180" />
+            <ArrowDown
+              size={20}
+              className="text-[#84A59D] transform rotate-180"
+            />
           )}
         </span>
       </div>
