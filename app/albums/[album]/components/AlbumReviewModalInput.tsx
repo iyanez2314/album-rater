@@ -21,20 +21,30 @@ export default function AlbumReviewModalInput({
 }: Props) {
   return (
     <div>
-      <h4 className="text-md font-semibold">
+      <h4 className="text-md font-semibold text-[#84A59D]">
         {isLoggedIn ? "" : "Please Login Before You Make a Comment"}
       </h4>
       <form onSubmit={handleSubmit}>
-        <div className="my-3 flex justify-between text-sm">
+        <div className="my-3 flex flex-col justify-between text-sm">
+          <label>Title</label>
           <input
             type="text"
             className="bg-white border rounded p-2 py-3 w-[49%]"
-            placeholder="Title"
+            placeholder="..."
             name="title"
             onChange={handleInputChange}
           />
         </div>
-        <div className="my-3 flex gap-2 text-sm">
+        <div className="my-3 flex flex-col justify-between text-sm">
+          <label>Comment</label>
+          <textarea
+            className="bg-white border rounded p-2 py-3 w-full"
+            placeholder="Tell us how you really feel..."
+            name="comment"
+            onChange={handleInputChange}
+          ></textarea>
+        </div>
+        <div className="my-3 flex gap-2 text-sm mb-3">
           {[...Array(5)].map((_, i) => (
             <button
               data-stars={i + 1}
@@ -45,27 +55,19 @@ export default function AlbumReviewModalInput({
               onClick={handleStars}
             >
               <Star
-                fill={i + 1 <= stars ? "#1DB954" : "#fafafa"}
-                className={i + 1 <= stars ? "text-[#1DB954]" : "text-gray-400"}
+                fill={i + 1 <= stars ? "#F5CAC3" : "#fafafa"}
+                className={i + 1 <= stars ? "text-[#F5CAC3]" : "text-gray-400"}
               />
             </button>
           ))}
-        </div>
-        <div className="my-3 flex justify-between text-sm">
-          <textarea
-            className="bg-white border rounded p-2 py-3 w-full"
-            placeholder="Tell us how you really feel..."
-            name="comment"
-            onChange={handleInputChange}
-          ></textarea>
         </div>
         <button
           type="submit"
           disabled={!isLoggedIn}
           className={
             isLoggedIn
-              ? "bg-[#1DB954] text-white rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
-              : "bg-[#1DB954] text-white rounded p-2 font-thin hover:cursor-not-allowed hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+              ? "bg-[#84A59D] text-white  rounded p-2 font-thin hover:cursor-pointer hover:bg-[#84A59D] transition-all duration-200 ease-in-out"
+              : "bg-[#84A59D] text-white rounded p-2 font-thin hover:cursor-not-allowed hover:bg-[#84A59D] transition-all duration-200 ease-in-out"
           }
         >
           {loading ? "submiting..." : "Submit Comment"}

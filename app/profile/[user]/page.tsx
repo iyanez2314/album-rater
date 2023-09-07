@@ -59,7 +59,7 @@ export default function page() {
 
   return (
     <div className="flex justify-evenly items-center min-h-screen flex-col mt-10 gap-20 mb-16">
-      <div className="bg-white rounded-lg text-black h-[500px] w-3/4 flex justify-center items-center flex-col space-y-2">
+      <div className="bg-white rounded-lg text-[#84A59D] h-[500px] w-3/4 flex justify-center items-center flex-col space-y-2">
         <div className="mb-3">
           <h1 className="text-lg font-semibold underline">
             Update Profile Info
@@ -103,13 +103,13 @@ export default function page() {
 
           <button
             type="submit"
-            className=" bg-purple-600 text-white p-2 rounded-md hover:opacity-80 transition-all duration-200 ease-in-out "
+            className=" bg-[#84A59D] text-white p-2 rounded-md hover:opacity-80 transition-all duration-200 ease-in-out "
           >
             Update Info
           </button>
         </form>
       </div>
-      <div className="bg-white rounded-lg text-black h-full items-center w-3/4 flex flex-col space-y-2">
+      <div className="bg-white rounded-lg text-[#84A59D] h-full items-center w-3/4 flex flex-col space-y-2">
         <div className="w-full">
           <Tabs>
             <Tab label="Comments Count">

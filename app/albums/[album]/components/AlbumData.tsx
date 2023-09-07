@@ -22,7 +22,7 @@ export default function AlbumData({ albumData }: any) {
   };
 
   return (
-    <div className="text-white flex flex-col justify-center items-center w-full h-[100px] mt-5">
+    <div className="text-[#84A59D] flex flex-col justify-center items-center w-full h-[100px] mt-5">
       <div className=" flex justify-center mx-12 w-full items-center p-2">
         <h1 className="text-xl md:text-xl lg:text-lg xl:text-2xl font-semibold">
           {name}
@@ -43,13 +43,12 @@ export default function AlbumData({ albumData }: any) {
           <div className="mx-1 flex gap-2 mt-1 justify-center items-center w-1/2">
             {albumAverageRating() ? (
               [...Array(albumAverageRating())].map((e, i) => (
-                <Star key={i} className="text-[#1DB954]" fill="currentColor" />
+                <Star key={i} className="text-[#F5CAC3]" fill="currentColor" />
               ))
             ) : (
-              <Star className="text-[#1DB954]" fill="currentColor" />
+              <Star className="text-[#F5CAC3]" fill="currentColor" />
             )}
           </div>
-          <hr className="mt-20 border-[#1DB954]" />
         </div>
       </div>
     </div>

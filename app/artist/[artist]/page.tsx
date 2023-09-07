@@ -30,14 +30,13 @@ export default function page({ params }: { params: any }) {
         {/* Most Recent Album Section */}
         <div className="flex flex-col">
           <div className="text-center">
-            <h1 className="text-3xl underline text-white">Most Recent Album</h1>
+            <h1 className="text-3xl underline text-black">Most Recent Album</h1>
           </div>
           <RecentAlbumCard mostRecentAlbum={mostRecentAlbum} />
         </div>
       </div>
-      <hr className="mt-10 border-[#1DB954] w-full" />
       <div className="my-3 w-full flex justify-center items-center">
-        <h1 className="text-3xl underline text-white">All Albums</h1>
+        <h1 className="text-3xl underline text-black">All Albums</h1>
       </div>
       <div className="grid grid-cols-1 p-10 my-5 mx-3 gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {artistAlbums?.items.slice(1).map((album: any) => (

@@ -9,7 +9,7 @@ export default function RecentAlbumCard({
   return (
     <>
       <Link key={mostRecentAlbum?.id} href={`/albums/${mostRecentAlbum?.id}`}>
-        <div className="mt-5 text-white">
+        <div className="mt-5 text-[#84A59D]">
           <img
             className="object-cover rounded"
             src={mostRecentAlbum?.images[0].url}

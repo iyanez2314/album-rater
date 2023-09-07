@@ -105,12 +105,12 @@ export default function AlbumReviewModal({
   const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button
-        className="text-white bg-[#1DB954] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+      <button
+        className="text-white bg-[#84A59D] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
         onClick={handleOpen}
       >
         Add Review
-      </Button>
+      </button>
       <Modal
         open={open}
         onClose={handleClose}

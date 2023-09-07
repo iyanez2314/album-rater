@@ -16,7 +16,7 @@ export default function ArtistCard({
   artistFollowers,
 }: Props) {
   return (
-    <div className="flex flex-col text-white text-center">
+    <div className="flex flex-col text-[#84A59D] text-center">
       <div className="p-7">
         <img src={artistImage || ""} alt={artistName} className="rounded" />
       </div>

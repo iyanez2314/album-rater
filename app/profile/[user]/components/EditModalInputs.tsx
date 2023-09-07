@@ -49,7 +49,7 @@ export default function EditModalInputs({
           ></textarea>
         </div>
 
-        <button className="text-white text-center bg-[#1DB954] p-2 rounded hover:opacity-80 transition-all duration-200 ease-in-out ">
+        <button className="text-white text-center bg-[#84A59D] p-2 rounded hover:opacity-80 transition-all duration-200 ease-in-out ">
           Update Comment
         </button>
       </form>

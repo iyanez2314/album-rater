@@ -18,7 +18,7 @@ export default function AuthHeader() {
     <div className="flex justify-between items-center gap-4 mt-5 w-full relative">
       <div className="w-1/2 mx-5">
         <h1 className="text-2xl font-semibold text-black text-left">
-          Album Rater
+          <Link href={"/discovery"}>Album Rater</Link>
         </h1>
       </div>
       <div className="items-center flex lg:hidden z-10 mr-5">

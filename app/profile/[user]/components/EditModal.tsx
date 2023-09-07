@@ -65,7 +65,7 @@ export default function EditModal({ comment }: Props) {
   return (
     <div>
       <Edit
-        className="text-[#1DB954] hover:cursor-pointer"
+        className="text-[#84A59D] hover:cursor-pointer"
         size={20}
         onClick={handleOpen}
       />

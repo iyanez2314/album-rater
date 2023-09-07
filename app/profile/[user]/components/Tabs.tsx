@@ -29,8 +29,8 @@ const Tabs: React.FC<{ children: ReactElement<TabProps>[] }> = ({
               key={label}
               className={`p-2 rounded font-thin w-full ${
                 activeTab === label
-                  ? "text-white bg-[#1DB954] underline"
-                  : "text-white bg-black"
+                  ? "text-white bg-[#84A59D] underline"
+                  : "text-[#84A59D] bg-white"
               }`}
               onClick={(e) => handleClick(e, label)}
             >
