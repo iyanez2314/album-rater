@@ -55,6 +55,7 @@ const useAuth = (router: any) => {
       });
       const data = await resp.json();
       setAuthState({ data, loading: false, error: null });
+      router.push("/");
     } catch (error: any) {
       setAuthState({ data: null, loading: false, error: error.message });
     }
