@@ -87,7 +87,7 @@ export default function AuthModal({ login }: Props) {
                   {error ? error : null}
                 </p>
                 <p className="text-2xl">
-                  {renderContent("Sign In", "Create Account")}
+                  {renderContent("Login", "Create Account")}
                 </p>
                 <AuthInput
                   handleSubmit={handleSubmit}

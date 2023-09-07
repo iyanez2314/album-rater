@@ -65,7 +65,7 @@ export default function AuthInput({
         type="submit"
         className="uppercase bg-[#84A59D] text-white p-3 rounded text-sm mb-5"
       >
-        {renderContent("Sign In", "Create Account")}
+        {renderContent("Login", "Create Account")}
       </button>
     </form>
   );
