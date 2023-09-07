@@ -26,25 +26,23 @@ const useComment = () => {
     onSuccess: () => void
   ) => {
     try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
       setLoading(true);
-      const resp = await fetch(
-        "http://localhost:3000/api/comments/createComment",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            albumTitle,
-            albumCover,
-            albumId,
-            userId,
-            title,
-            rating,
-            comment,
-          }),
-        }
-      );
+      const resp = await fetch(`${apiUrl}/api/comments/createComment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          albumTitle,
+          albumCover,
+          albumId,
+          userId,
+          title,
+          rating,
+          comment,
+        }),
+      });
       const data = await resp.json();
       setLoading(false);
       if (resp.ok) {

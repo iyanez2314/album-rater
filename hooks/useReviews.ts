@@ -34,7 +34,10 @@ const useReviews = (params: params, refreshKey: number) => {
   useEffect(() => {
     const fetchAllReviews = async () => {
       try {
-        const response = await fetch("/api/album/fetchAlbumData", {
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+        const response = await fetch(`${apiUrl}/api/album/fetchAlbumData`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

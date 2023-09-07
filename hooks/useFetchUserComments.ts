@@ -13,13 +13,18 @@ const useFetchUserComments = (userId: any) => {
   useEffect(() => {
     const fetchUsersComments = async () => {
       try {
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
         const options = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: userId?.email }),
         };
         setLoading(true);
-        const res = await fetch("/api/comments/fetchUserComments", options);
+        const res = await fetch(
+          `${apiUrl}/api/comments/fetchUserComments`,
+          options
+        );
         const resData = await res.json();
         setUsersComments(resData.userComments);
         setLoading(false);
