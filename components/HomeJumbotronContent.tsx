@@ -44,7 +44,7 @@ function HomeJumbotronContent() {
                     <Link href={"/discovery"}>Discovery</Link>
                   </button>
                   <button className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center text-white">
-                    Profile
+                    <Link href={"/profile/user"}>Profile</Link>
                   </button>
                 </>
               ) : (
