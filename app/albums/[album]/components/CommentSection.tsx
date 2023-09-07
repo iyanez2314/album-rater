@@ -51,7 +51,7 @@ export default function CommentSection({
           })}
         </div>
       )}
-      <button className="mt-6 mb-6 bg-[#84A59D] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] text-white transition-all duration-200 ease-in-out">
+      <button className="mt-6 mb-6 bg-[#84A59D] rounded p-2 font-thin hover:cursor-pointer  text-white transition-all duration-200 ease-in-out">
         Read More
       </button>
     </div>

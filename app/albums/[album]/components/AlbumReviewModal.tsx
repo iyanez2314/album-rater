@@ -106,7 +106,7 @@ export default function AlbumReviewModal({
   return (
     <div>
       <button
-        className="text-white bg-[#84A59D] rounded p-2 font-thin hover:cursor-pointer hover:bg-[#1ed760] transition-all duration-200 ease-in-out"
+        className="text-white bg-[#84A59D] rounded p-2 font-thin hover:cursor-pointer transition-all duration-200 ease-in-out"
         onClick={handleOpen}
       >
         Add Review
