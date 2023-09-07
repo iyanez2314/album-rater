@@ -19,6 +19,7 @@ interface State {
 
 interface AuthState extends State {
   setAuthState: React.Dispatch<React.SetStateAction<State>>;
+  refreshUser: () => void;
 }
 
 export const AuthenticationContext = createContext<AuthState>({
@@ -26,6 +27,7 @@ export const AuthenticationContext = createContext<AuthState>({
   error: null,
   data: null,
   setAuthState: () => {},
+  refreshUser: () => {},
 });
 
 export default function AuthContext({
@@ -38,6 +40,10 @@ export default function AuthContext({
     error: null,
     data: null,
   });
+  const [refreshCount, setRefreshCount] = useState(0);
+  const refreshTheUser = () => {
+    setRefreshCount((count) => count + 1);
+  };
   const fetchUser = async () => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     setAuthState({ data: null, error: null, loading: true });
@@ -62,9 +68,11 @@ export default function AuthContext({
   };
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [refreshCount]);
   return (
-    <AuthenticationContext.Provider value={{ ...authState, setAuthState }}>
+    <AuthenticationContext.Provider
+      value={{ ...authState, setAuthState, refreshUser: refreshTheUser }}
+    >
       {children}
     </AuthenticationContext.Provider>
   );

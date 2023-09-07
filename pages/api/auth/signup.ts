@@ -71,11 +71,11 @@ export default async function handler(
     const token = await new jose.SignJWT({
       email: newUser.email,
     })
-      .setExpirationTime("1h")
       .setProtectedHeader({ alg })
+      .setExpirationTime("24h")
       .sign(secret);
 
-    setCookie("jwt", token, { req, res, httpOnly: true, maxAge: 60 * 60 * 24 });
+    setCookie("jwt", token, { req, res, maxAge: 60 * 60 * 24 });
 
     prisma.$disconnect();
 

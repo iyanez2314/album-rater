@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthenticationContext } from "../app/context/AuthContext";
 
 const useAuth = (router: any) => {
-  const { setAuthState } = useContext(AuthenticationContext);
+  const { setAuthState, refreshUser } = useContext(AuthenticationContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   const singin = async ({
@@ -54,7 +54,12 @@ const useAuth = (router: any) => {
         body: JSON.stringify({ email, name, password, username }),
       });
       const data = await resp.json();
+      if (resp.status === 400) {
+        setAuthState({ data: null, loading: false, error: data.errorMessage });
+        return;
+      }
       setAuthState({ data, loading: false, error: null });
+      refreshUser();
       router.push("/");
     } catch (error: any) {
       setAuthState({ data: null, loading: false, error: error.message });
