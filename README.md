@@ -8,7 +8,7 @@
 - React
 - Next.js
 - Material UI
-- Postgres
+- PostgreSQL
 - Prisma
 - Tailwind CSS
 
