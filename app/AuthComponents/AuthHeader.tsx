@@ -1,20 +1,34 @@
 "use client";
 import Link from "next/link";
-import { Search, Settings, LogOut, Globe } from "react-feather";
+import { Search, Settings, LogOut, Globe, Menu } from "react-feather";
 import useAuth from "../../hooks/useAuth";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function AuthHeader() {
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(true);
   const { logout } = useAuth(router);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="flex justify-between items-center gap-4 mt-5 w-full">
+    <div className="flex justify-between items-center gap-4 mt-5 w-full relative">
       <div className="w-1/2 mx-5">
         <h1 className="text-2xl font-semibold text-black text-left">
           Album Rater
         </h1>
       </div>
-      <div className="flex justify-end gap-5 w-1/2 mx-5">
+      <div className="items-center flex lg:hidden z-10 mr-5">
+        <Menu size={25} onClick={toggleMenu} />
+      </div>
+      <div
+        className={`flex justify-end gap-5 w-1/2 mx-5 lg:flex ${
+          isMenuOpen ? "flex" : "hidden"
+        }`}
+      >
         <button className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center gap-2 text-white">
           <Search />
           <Link href={"/search"}>Search</Link>
