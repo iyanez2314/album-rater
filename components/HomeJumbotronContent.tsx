@@ -37,7 +37,7 @@ function HomeJumbotronContent() {
                 favorite albums with other music lovers.
               </p>
             </div>
-            <div className="flex gap-5 w-1/2">
+            <div className="flex gap-5 w-full sm:w-1/2">
               {data ? (
                 <>
                   <button className="p-3 bg-[#84A59D] w-[100px] h-[40px] rounded items-center flex justify-center text-white">
