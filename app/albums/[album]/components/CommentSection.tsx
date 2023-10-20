@@ -45,7 +45,7 @@ export default function CommentSection({
           <p className="text-lg font-thin">Be the first to review this album</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 items-start  sm:w-3/4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-7 items-start sm:w-3/4 xl:w-full">
           {reviews?.map((review: Review) => {
             return <ReviewCards key={review.id} review={review} />;
           })}
