@@ -19,6 +19,7 @@ const useAuth = (router: any) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*", // This is a temporary fix
         },
         body: JSON.stringify({ email, password }),
       });
