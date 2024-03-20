@@ -31,6 +31,7 @@ export default function AlbumData({ albumData }: any) {
       <div className="w-1/2 flex flex-col justify-center items-center">
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex justify-center items-center">
+            <h1>Let's do some fun stuff with this</h1>
             <Link href={`/artist/${artistId}`}>
               <p
                 className="m-2
